@@ -1,10 +1,24 @@
 .logo {
-  color: #ffffff;
+  /* color: #ffffff;
   font-family: "Roboto";
   font-weight: 700;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 24px; */
   text-decoration: none;
+  /* padding: 0;
+  margin: 0; */
+}
+
+.logo__text {
+  font-family: "Roboto Slab";
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
   padding: 0;
-  margin: 0;
+  margin: 12px 0 0;
+}
+
+.logo__text:hover {
+  cursor: url("../../images/pointer_icon.svg");
 }

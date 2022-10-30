@@ -1,0 +1,12 @@
+.header {
+  max-height: 48px;
+  border-bottom: 3px solid rgba(196, 196, 196, 0.1);
+  padding: 19px 0 10px;
+}
+
+.header__overlay {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 104px 0;
+}
