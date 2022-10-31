@@ -1,10 +1,10 @@
 import "./Logo.css";
 import { Link } from "react-router-dom";
 
-function Logo() {
+function Logo({ colorLogo }) {
   return (
     <Link to="/" className="logo">
-      <p className="logo__text">NewsExplorer</p>
+      <p className={`logo__text logo__text_${colorLogo}`}>NewsExplorer</p>
     </Link>
   );
 }

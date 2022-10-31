@@ -22,3 +22,7 @@
 .logo__text:hover {
   cursor: url("../../images/pointer_icon.svg");
 }
+
+.logo__text_type_black {
+  color: #1a1b22;
+}

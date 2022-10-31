@@ -1,13 +1,15 @@
 .about {
   width: 100%;
   padding: 0;
-  margin: 80px 0 80px 104px;
+  margin: 80px 0;
 }
 
 .about__overlay {
   display: grid;
   gap: 56px;
   grid-template-columns: 464px 1fr;
+  width: 1220px;
+  margin: 0 auto;
 }
 
 .about__author {

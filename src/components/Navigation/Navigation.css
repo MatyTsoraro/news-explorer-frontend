@@ -35,26 +35,26 @@
   /* width: 63px; */
   margin: 0 0 0 9px;
   text-decoration: none;
-}
+  /* } */
 
-/* This is the underline under the button Home */
-.navigation__homepage_type_selected {
+  /* This is the underline under the button Home */
+  /* .navigation__homepage_type_selected { */
   border-bottom: 3px solid #ffffff;
-  color: #ffffff;
+  /* color: #ffffff; */
   margin: 0 42px 0 0;
   padding: 0 9px 23px;
 }
 
-/* This is the underline under the button Home when the page is white */
-.navigation__homepage_type_selected-page {
+.navigation__homepage_type_page {
   border-color: #1a1b22;
+  border: none;
 }
 
 /* When the background is black */
 .navigation__saved-articles {
   margin: 0;
   padding: 0;
-  color: #ffffff;
+  color: #b6bcbf;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -62,16 +62,19 @@
   width: 114px;
 }
 
-/* This is the underline under the button Saved articles */
-.navigation__saved-articles_type_selected {
-  color: #ffffff;
-  border-bottom: 3px solid #ffffff;
-  padding: 0 32px 23px;
-}
+.navigation__saved-articles_type_page {
+  color: rgba(26, 27, 34, 0.5);
+  /* } */
 
-/* This is the underline under the button Saved articles when the page is white */
-.navigation__saved-articles_type_selected-page {
-  border-color: #1a1b22;
+  /* This is the underline under the button Saved articles */
+  /* .navigation__saved-articles_type_selected { */
+  padding: 0 32px 23px;
+  /* } */
+
+  /* This is the underline under the button Saved articles when the page is white */
+  /* .navigation__saved-articles_type_selected-page {
+  border-color: #1a1b22; */
+  border-bottom: 3px solid #1a1b22;
 }
 
 /* When the background is in black */
@@ -106,7 +109,7 @@
 }
 
 .navigation__button-img:hover {
-  cursor: pointer;
+  cursor: url("../../images/pointer_icon.svg"), pointer;
 }
 
 .navigation__homepage:hover,

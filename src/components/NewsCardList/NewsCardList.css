@@ -1,0 +1,11 @@
+.card-list {
+  width: 1232px;
+  margin: 0 auto;
+}
+
+.card-list__overlay {
+  display: grid;
+  justify-content: center;
+  gap: 16px;
+  grid-template-columns: repeat(3, 400px);
+}
