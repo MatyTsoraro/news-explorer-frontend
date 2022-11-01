@@ -1,0 +1,92 @@
+.popup-form__input-overlay {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 358px;
+  margin: 22px 0 0 36px;
+}
+
+.popup-form__input-overlay:first-of-type {
+  padding: 0;
+  margin: 22px 0 31px 36px;
+}
+
+.popup-form__input-overlay_type_username {
+  padding: 0;
+  margin: 31px 0 0 36px;
+}
+
+.popup-form__input-label {
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  padding: 0;
+  color: #2f71e5;
+  margin: 0 0 9px;
+}
+
+.popup-form__input {
+  opacity: 0.2;
+  border-bottom: 1px solid #1a1b22;
+  color: #1a1b22;
+  padding: 0 0 9px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin: 0 0 16px;
+}
+
+.popup-form__input:last-of-type {
+  margin: 0;
+}
+
+.popup-form__input:focus {
+  outline: none;
+}
+
+.popup-form__button {
+  background-color: #2f71e5;
+  color: #ffffff;
+  border: none;
+  padding: 0;
+  border-radius: 100px;
+  margin: 38px auto 0;
+  height: 64px;
+  width: 360px;
+}
+
+.popup-form__button:hover {
+  opacity: 0.6;
+  cursor: url("../../images/pointer_icon.svg"), pointer;
+}
+
+.popup-form__button_disabled {
+  color: #b6bcbf;
+  background-color: #e6e8e8;
+}
+
+.popup-form__text {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 16px auto 28px;
+}
+
+.popup-form__link {
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  padding: 0;
+  color: #2f71e5;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+.popup-form__link:hover {
+  cursor: url("../../images/pointer_icon.svg"), pointer;
+  opacity: 0.6;
+}

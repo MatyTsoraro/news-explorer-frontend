@@ -26,11 +26,11 @@ const SavedNews = ({ userName }) => {
       </div>
       <div className="saved-news__news-overlay">
         <div className="saved-news__cards">
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
+          <NewsCard buttonType={"remove"} />
+          <NewsCard buttonType={"remove"} />
+          <NewsCard buttonType={"remove"} />
+          <NewsCard buttonType={"remove"} />
+          <NewsCard buttonType={"remove"} />
         </div>
       </div>
       <Footer />

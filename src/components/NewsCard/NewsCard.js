@@ -49,9 +49,9 @@ const NewsCard = ({
     <div className="news-card">
       <div className="news-card__overlay">
         <span className={`news-card__warning${isShown}`}>{message}</span>
-        <span className="news-card__keyword news-card__keyword_type_hidden">
+        {/* <span className="news-card__keyword news-card__keyword_type_hidden">
           {cardPlaceholder.key}
-        </span>
+        </span> */}
         {isLoggedIn ? (
           <button
             onClick={
@@ -61,15 +61,26 @@ const NewsCard = ({
               buttonType === "save" ? setIsShown("_hidden") : setIsShown("");
             }}
             onMouseLeave={() => setIsShown("_hidden")}
-            className={"news-card__button-save" || `${buttonType}-button`}
+            className={`${buttonType}-button`}
           ></button>
         ) : (
           <button
             onMouseEnter={() => setIsShown("")}
             onMouseLeave={() => setIsShown("_hidden")}
-            className={"news-card__button-save" || `${buttonType}-button`}
+            className={`${buttonType}-button`}
           ></button>
         )}
+
+        <span
+          className={
+            buttonType === "remove"
+              ? "news-card__keyword"
+              : "news-card__keyword news-card__keyword_type_hidden"
+          }
+        >
+          {cardPlaceholder.key}
+        </span>
+
         <img
           className="news-card__img"
           alt="Card"

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import whiteIcon from "../../images/button-white_icon.svg";
 import blackIcon from "../../images/button-black_icon.svg";
 
-const Navigation = ({ isLoggedIn, userName, colorText }) => {
+const Navigation = ({ isLoggedIn, userName, colorText, openSigninPopup }) => {
   const placeholderUser = "Grace";
 
   const textInWhite = {
@@ -18,16 +18,6 @@ const Navigation = ({ isLoggedIn, userName, colorText }) => {
     homeButton: "navigation__homepage_type_page",
     savedArticles: "navigation__saved-articles_type_page",
   };
-
-  // const textInWhiteSelected = {
-  //   homeButton: "navigation__homepage navigation__homepage_type_selected",
-  //   savedArticles: "navigation__saved-articles_type_selected",
-  // };
-
-  // const textInBlackSelected = {
-  //   homeButton: "navigation__homepage_type_selected-page",
-  //   savedArticles: "navigation__saved-articles_type_selected-page",
-  // };
 
   return (
     <nav className="navigation">
@@ -98,6 +88,7 @@ const Navigation = ({ isLoggedIn, userName, colorText }) => {
                   ? `${textInWhite.signInButton} ${textInBlack.signInButton}`
                   : `${textInWhite.signInButton}`
               }
+              onClick={openSigninPopup}
             >
               Sign in
             </button>
