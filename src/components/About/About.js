@@ -3,7 +3,7 @@ import authorImage from "../../images/author-chen-opt1.jpg";
 
 const About = () => {
   return (
-    <div className="about">
+    <section className="about">
       <div className="about__overlay">
         <img className="about__author" alt="Author" src={authorImage} />
         <div className="about__content-overlay">
@@ -21,7 +21,7 @@ const About = () => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

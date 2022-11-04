@@ -1,80 +1,40 @@
+import React from "react";
 import "./PopupWithForm.css";
-import Popup from "../Popup/Popup";
 
-const PopupWithForm = ({
-  isOpen,
-  popupTitle,
-  buttonText,
-  linkText,
-  openPopup,
-  formName,
-  onClose,
-}) => {
-  //   return (
-  //     <div className="popup">
-  //       <div className="popup__overlay">
-  //         {/* <h2 className="popup__title">{popupTitle}</h2> */}
-  //       </div>
-  //     </div>
-  //   );
+const PopupWithForm = (props) => {
+  function handlePopupClick(evt) {
+    if (evt.target.classList.contains("popup_receptive")) {
+      props.onClose();
+    }
+  }
+
   return (
-    <Popup
-      isOpen={isOpen}
-      popupTitle={popupTitle}
-      //   isButton={true}
-      buttonText={buttonText}
-      linkText={linkText}
-      openPopup={openPopup}
-      onClose={onClose}
+    <div
+      className={`popup popup_type_${props.name} ${
+        props.isOpen ? "popup_receptive" : ""
+      }`}
+      onClick={handlePopupClick}
     >
-      <form name={formName}>
-        <div className="popup-form__input-overlay">
-          <label className="popup-form__input-label" aria-label="email">
-            Email
-          </label>
-          <input
-            className="popup-form__input"
-            id="signin-email"
-            type="email"
-            placeholder="Enter email"
-          />
+      <div className="popup__overlay">
+        <button
+          className="popup__close-button popup__close-button_type_form"
+          type="button"
+          aria-label="Close popup"
+          onClick={props.onClose}
+        ></button>
+        <div className="popup__form-overlay">
+          <h2 className="popup__title">{props.title}</h2>
+          <form
+            className={`popup__form popup__form_type_${props.name}`}
+            name={`form-${props.name}`}
+            onSubmit={props.onSubmit}
+            noValidate
+          >
+            {props.children}
+          </form>
         </div>
-
-        <div className="popup-form__input-overlay">
-          <label className="popup-form__input-label" aria-label="password">
-            Password
-          </label>
-          <input
-            className="popup-form__input"
-            id="password"
-            type="password"
-            placeholder="Enter password"
-          />
-        </div>
-        {formName === "register" ? (
-          <div className="popup-form__input-overlay popup-form__input-overlay_type_username">
-            <label className="popup-form__input-label" aria-label="username">
-              Username
-            </label>
-            <input
-              className="popup-form__input"
-              // id="username"
-              type="text"
-              placeholder="Enter your username"
-            />
-          </div>
-        ) : (
-          ""
-        )}
-      </form>
-      <button className="popup-form__button">{buttonText}</button>
-      <p className={`popup-form__text`}>
-        or{" "}
-        <button className="popup-form__link" onClick={openPopup}>
-          {linkText}
-        </button>
-      </p>
-    </Popup>
+      </div>
+    </div>
   );
 };
 

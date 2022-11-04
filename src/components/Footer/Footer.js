@@ -1,33 +1,57 @@
-import "./Footer.css";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import facebookIcon from "../../images/facebook-icon.svg";
-import githubIcon from "../../images/github-icon.svg";
+import "./Footer.css";
+import FacebookIcon from "../../images/facebook-icon.svg";
+import GithubIcon from "../../images/github-icon.svg";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <p className="footer__copyright">
-        &copy; 2022 Supersite, Powered by News API
-      </p>
-      <div className="footer__overlay">
-        <NavLink className="footer__homepage" to="/">
-          Home
-        </NavLink>
-        <p className="footer__text">Practicum by Yandex</p>
-        <div className="footer__link-overlay">
-          <a className="footer__link" href="*">
-            <img className="footer__icon" alt="GitHub Icon" src={githubIcon} />
-          </a>
-          <a className="footer__link" href="*">
-            <img
-              className="footer__icon"
-              alt="Facebook Icon"
-              src={facebookIcon}
-            />
-          </a>
-        </div>
+    <footer className="footer">
+      <div className="footer__content">
+        <p className="footer__copyright">
+          &copy; 2022 Supersite, Powered by News API
+        </p>
+        <nav className="footer__navigation">
+          <div className="footer__links">
+            <NavLink className="footer__link" to="/">
+              Home
+            </NavLink>
+            <a
+              className="footer__link"
+              href="https://practicum.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Practicum
+            </a>
+          </div>
+          <div className="footer__social">
+            <a
+              href="https://github.com/Chen-Abudi"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                className="footer__icon footer__icon_type_github"
+                src={GithubIcon}
+                alt="Github Icon"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                className="footer__icon footer__icon_type_facebook"
+                src={FacebookIcon}
+                alt="Facebook Icon"
+              />
+            </a>
+          </div>
+        </nav>
       </div>
-    </div>
+    </footer>
   );
 };
 

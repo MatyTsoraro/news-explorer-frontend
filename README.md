@@ -1,3 +1,26 @@
+# Final Project at Practicum
+
+# News Explorer Service App 📰🌐🗺️
+
+## Overview
+
+- Intro
+- Technologies & Techniques
+
+## Intro
+
+This is the Frontend of a News Explorer Service App, where users can search for news articles worldwide and save them to their own accounts. The app developed with React.
+
+## 🛠️ Technologies & Techniques
+
+- ReactJS
+- JavaScript
+- CSS3
+- React Router Dom
+- Responsive Layout
+
+## **Evolving project, Stay tuned ! 🌺👋🏽**
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
