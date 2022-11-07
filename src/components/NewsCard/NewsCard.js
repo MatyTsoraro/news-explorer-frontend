@@ -8,7 +8,6 @@ const NewsCard = ({
   onSaveArticleClick,
   onRemoveArticleClick,
   savedArticles,
-  // savedArticlesData,
   onSignInClick,
 }) => {
   const [isSaved, setIsSaved] = useState(false);
@@ -134,14 +133,13 @@ const NewsCard = ({
         rel="noreferrer"
       >
         <img className="news-card__image" src={data.image} alt={data.title} />
+        <div className="news-card__overlay">
+          <p className="news-card__date">{convertDate()}</p>
+          <h2 className="news-card__title">{data.title}</h2>
+          <p className="news-card__description">{data.text}</p>
+          <p className="news-card__source">{data.source}</p>
+        </div>
       </a>
-
-      <div className="news-card__overlay">
-        <p className="news-card__date">{convertDate()}</p>
-        <h2 className="news-card__title">{data.title}</h2>
-        <p className="news-card__description">{data.text}</p>
-        <p className="news-card__source">{data.source}</p>
-      </div>
     </article>
   ) : (
     <article className="news-card">

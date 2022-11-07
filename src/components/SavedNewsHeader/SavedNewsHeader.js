@@ -30,7 +30,7 @@ const SavedNewsHeader = ({ currentUser, savedArticles }) => {
       <div className="saved-news__content">
         <p className="saved-news__title">Saved articles</p>
         <h1 className="saved-news__heading">
-          {currentUser.name}, you have {savedArticles.length} saved articles
+          {currentUser?.name}, you have {savedArticles.length} saved articles
         </h1>
         <p className="saved-news__keywords">
           By keywords:{" "}
