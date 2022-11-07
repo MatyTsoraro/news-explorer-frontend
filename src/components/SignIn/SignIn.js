@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import FormValidation from "../../utils/FormValidation";
+import useFormValidation from "../../utils/useFormValidation";
 
-const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
+const SignIn = ({
+  isOpen,
+  onClose,
+  onLoginSubmit,
+  onSignUpClick,
+  hasError,
+}) => {
   const { values, handleChange, errors, isValid, handleFormReset } =
-    FormValidation();
+    useFormValidation();
 
   // When form is open, resets it
   useEffect(() => {
@@ -13,7 +19,7 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onLoginSubmit();
+    onLoginSubmit(values.email, values.password);
   }
 
   return (
@@ -65,6 +71,12 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
           {errors.password || ""}
         </p>
       </div>
+
+      {hasError && (
+        <p className="popup__error popup__error_type_form">
+          Incorrect email or password
+        </p>
+      )}
 
       <button
         className={`popup__submit-button ${

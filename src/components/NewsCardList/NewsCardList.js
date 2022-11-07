@@ -1,60 +1,168 @@
 import React, { useEffect, useState } from "react";
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
-import savedArticles from "../../utils/savedArticles";
+import { NUMBER_CARDS } from "../../utils/constants";
 
-const NewsCardList = ({ onSavedArticlesPage, loggedIn }) => {
-  const [showCards, setShowCards] = useState([]);
+// import mainApi from "../../utils/MainApi";
+
+const NewsCardList = ({
+  onSavedArticlesPage,
+  loggedIn,
+  cards,
+  savedArticles,
+  // savedArticlesData,
+  // setSavedArticleData,
+  showCards,
+  setShowCards,
+  onSaveArticleClick,
+  onRemoveArticleClick,
+  savedCardsArray,
+  setSavedCardsArray,
+  onSignInClick,
+  // handleSaveArticleClick,
+  // token,
+}) => {
+  // const [showCards, setShowCards] = useState([]);
   const [next, setNext] = useState(3);
+  const [isButtonHidden, setIsButtonHidden] = useState(false);
+  // const [isButtonVisible, setIsButtonVisible] = useState(false);
 
-  // It starts with 3 new cards (on saved article page, it will show all cards)
+  // useEffect(() => {
+  //   mainApi
+  //     .getArticles(token)
+  //     .then((res) => {
+  //       setShowCards(res.articles);
+  //       setSavedArticlesData(res.articles);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  /* It starts with 3 new cards (on saved article page, 
+    it will show all cards) */
   useEffect(() => {
     if (!onSavedArticlesPage) {
-      setShowCards(savedArticles.slice(0, 3));
-    } else {
-      setShowCards(savedArticles);
+      setShowCards(cards?.slice(0, 3));
     }
-  }, [onSavedArticlesPage]);
+  }, [cards, onSavedArticlesPage, setShowCards]);
 
+  useEffect(() => {
+    if (onSavedArticlesPage) {
+      setSavedCardsArray(savedArticles);
+    }
+  }, [onSavedArticlesPage, savedArticles, setSavedCardsArray]);
+
+  /* Shows only show more button while the number of 
+  cards are shown is smaller than the total */
+  useEffect(() => {
+    if (showCards?.length < cards?.length) {
+      setIsButtonHidden(false);
+    } else {
+      setIsButtonHidden(true);
+    }
+  }, [showCards?.length, cards?.length]);
+
+  /* On every each click, adds 3 cards to the variable 'next' 
+  and increases the value by 3 */
   function handleShowMoreCards() {
-    setShowCards(savedArticles.slice(0, next + 3));
-    setNext(next + 3);
+    setShowCards(cards.slice(0, next + NUMBER_CARDS));
+    setNext(next + NUMBER_CARDS);
   }
 
-  return (
-    <section
-      className={`news-card-list ${
-        onSavedArticlesPage && "news-card-list_saved-articles"
-      }`}
-    >
+  // return (
+  //   <section
+  //     className={`news-card-list ${
+  //       onSavedArticlesPage && "news-card-list_saved-articles"
+  //     }`}
+  //   >
+  //     <div className="news-card-list__overlay">
+  //       {!onSavedArticlesPage && (
+  //         <h3 className="news-card-list__title">Search results</h3>
+  //       )}
+  //       <ul
+  //         className={`news-card-list__card-grid ${
+  //           onSavedArticlesPage && "news-card-list__card-grid_saved-articles"
+  //         }`}
+  //       >
+  //         {showCards?.map((newscard, index) => (
+  //           <li className="news-card-list__card" key={index}>
+  //             <NewsCard
+  //               // key={newscard._id}
+  //               data={newscard}
+  //               onSavedArticlesPage={onSavedArticlesPage}
+  //               loggedIn={loggedIn}
+  //               // onSaveArticleClick={handleSaveArticleClick}
+  //             />
+  //           </li>
+  //         ))}
+  //       </ul>
+  //       {!onSavedArticlesPage && (
+  //         <button
+  //           className="news-card-list__show-more-button"
+  //           onClick={handleShowMoreCards}
+  //         >
+  //           Show more
+  //         </button>
+  //       )}
+  //     </div>
+  //   </section>
+  // );
+
+  return onSavedArticlesPage ? (
+    <section className="news-card-list news-card-list_saved-articles">
       <div className="news-card-list__overlay">
-        {!onSavedArticlesPage && (
-          <h3 className="news-card-list__title">Search results</h3>
-        )}
-        <ul
-          className={`news-card-list__card-grid ${
-            onSavedArticlesPage && "news-card-list__card-grid_saved-articles"
-          }`}
-        >
-          {showCards.map((newscard) => (
+        <ul className="news-card-list__card-grid news-card-list__card-grid_saved-articles">
+          {showCards?.map((newscard) => (
             <li className="news-card-list__card" key={newscard._id}>
               <NewsCard
-                key={newscard._id}
+                // key={newscard._id}
                 data={newscard}
                 onSavedArticlesPage={onSavedArticlesPage}
                 loggedIn={loggedIn}
+                onRemoveArticleClick={onRemoveArticleClick}
+                savedArticles={savedArticles}
+                // onSaveArticleClick={handleSaveArticleClick}
               />
             </li>
           ))}
         </ul>
-        {!onSavedArticlesPage && (
+      </div>
+    </section>
+  ) : (
+    <section className="news-card-list">
+      <div className="news-card-list__overlay">
+        <h3 className="news-card-list__title">Search results</h3>
+        <ul className="news-card-list__card-grid">
+          {showCards?.map((newscard, index) => (
+            <li className="news-card-list__card" key={index}>
+              <NewsCard
+                data={newscard}
+                onSavedArticlesPage={onSavedArticlesPage}
+                loggedIn={loggedIn}
+                onSaveArticleClick={onSaveArticleClick}
+                onRemoveArticleClick={onRemoveArticleClick}
+                savedArticles={savedArticles}
+                onSignInClick={onSignInClick}
+                // savedArticlesData={savedArticlesData}
+
+                // image={newscard.urlToImage}
+              />
+            </li>
+          ))}
+        </ul>
+        {!onSavedArticlesPage && isButtonHidden && (
           <button
-            className="news-card-list__show-more-button"
+            className={`news-card-list__show-more-button`}
             onClick={handleShowMoreCards}
           >
             Show more
           </button>
         )}
+        {/* <button
+          className="news-card-list__show-more-button"
+          onClick={handleShowMoreCards}
+        >
+          Show more
+        </button> */}
       </div>
     </section>
   );

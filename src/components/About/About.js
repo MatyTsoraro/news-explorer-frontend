@@ -1,11 +1,11 @@
 import "./About.css";
-import authorImage from "../../images/author-chen-opt1.jpg";
+import GraceCAbudi from "../../images/author-chen.jpg";
 
 const About = () => {
   return (
     <section className="about">
       <div className="about__overlay">
-        <img className="about__author" alt="Author" src={authorImage} />
+        <img className="about__author" alt="Author" src={GraceCAbudi} />
         <div className="about__content-overlay">
           <h2 className="about__title">About the author</h2>
           <p className="about__description">

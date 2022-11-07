@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
           <div className="footer__social">
             <a
-              href="https://github.com/Chen-Abudi"
+              href="https://github.com/Chen-Abudi/news-explorer-frontend"
               target="_blank"
               rel="noreferrer"
             >

@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
+const SearchForm = ({
+  searchKeyword,
+  setSearchKeyword,
+  // setIsNewsCardListOpen,
+  onSearch,
+}) => {
   const [formInputValue, setFormInputValue] = useState("");
+  const [placeholderText, setPlaceholderText] = useState("Enter topic");
 
   function handleChange(evt) {
     setSearchKeyword(evt.target.value);
@@ -11,8 +17,15 @@ const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    setIsNewsCardListOpen(true);
-    setFormInputValue("");
+    if (!formInputValue) {
+      setPlaceholderText("Please enter a keyword");
+    } else {
+      onSearch(searchKeyword);
+    }
+
+    // setIsNewsCardListOpen(true);
+
+    // setFormInputValue("");
   }
 
   return (
@@ -31,7 +44,7 @@ const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
         >
           <input
             className="search-form__input"
-            placeholder="Enter topic"
+            placeholder={placeholderText}
             value={formInputValue}
             onChange={handleChange}
           ></input>

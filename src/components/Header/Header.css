@@ -63,6 +63,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+
+  padding: 12px; /* check this */
 }
 
 .header__log-button_logged-in {
@@ -72,7 +74,8 @@
 
 .header__log-button_logged-out {
   width: 176px;
-  margin: auto 0 auto 16px;
+  margin: auto 0 auto 32px;
+  /* margin: auto 0 auto 16px; */
 }
 
 .header__logo:hover,

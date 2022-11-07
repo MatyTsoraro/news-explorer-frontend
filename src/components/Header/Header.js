@@ -11,11 +11,12 @@ import MenuLogoutBlackIcon from "../../images/menu-logout-black_icon.svg";
 
 const Header = ({
   loggedIn,
-  setLoggedIn,
+  currentUser,
   onSignInClick,
   setIsNewsCardListOpen,
   setSearchKeyword,
   onSavedArticlesPage,
+  onLogOut,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileWidth, setMobileWidth] = useState(false);
@@ -34,7 +35,6 @@ const Header = ({
         setMobileWidth(false);
       }
     }
-
     checkWidth();
     window.addEventListener("resize", checkWidth);
     return () => window.removeEventListener("resize", checkWidth);
@@ -66,7 +66,6 @@ const Header = ({
   });
 
   function handleCloseFromOverlay(evt) {
-    // console.log(evt.target);
     if (overlayRef.current && !overlayRef.current.contains(evt.target)) {
       setIsMenuOpen(false);
     }
@@ -99,7 +98,7 @@ const Header = ({
 
   function logOut() {
     handleNavigationClick();
-    setLoggedIn(false);
+    onLogOut();
   }
 
   return loggedIn ? (
@@ -169,7 +168,7 @@ const Header = ({
             to=""
             onClick={logOut}
           >
-            <p className="header__log-button-username">Chen</p>
+            <p className="header__log-button-username">{currentUser?.name}</p>
             <img
               className="header__log-button-logout-icon"
               src={logoutShowIcon}
@@ -196,7 +195,7 @@ const Header = ({
       </NavLink>
       <img
         className="header__menu-icon"
-        alt="menu icon"
+        alt="Menu icon"
         src={hamburgerShow}
         onClick={onHamburgerClick}
       />
