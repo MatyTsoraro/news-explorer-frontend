@@ -3,15 +3,11 @@ import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 import { NUMBER_CARDS } from "../../utils/constants";
 
-// import mainApi from "../../utils/MainApi";
-
 const NewsCardList = ({
   onSavedArticlesPage,
   loggedIn,
   cards,
   savedArticles,
-  // savedArticlesData,
-  // setSavedArticleData,
   showCards,
   setShowCards,
   onSaveArticleClick,
@@ -19,13 +15,9 @@ const NewsCardList = ({
   savedCardsArray,
   setSavedCardsArray,
   onSignInClick,
-  // handleSaveArticleClick,
-  // token,
 }) => {
-  // const [showCards, setShowCards] = useState([]);
   const [next, setNext] = useState(3);
   const [isButtonHidden, setIsButtonHidden] = useState(false);
-  // const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   // useEffect(() => {
   //   mainApi
@@ -51,7 +43,7 @@ const NewsCardList = ({
     }
   }, [onSavedArticlesPage, savedArticles, setSavedCardsArray]);
 
-  /* Shows only show more button while the number of 
+  /* Shows only the show more button while the number of 
   cards are shown is smaller than the total */
   useEffect(() => {
     if (showCards?.length < cards?.length) {
@@ -111,16 +103,14 @@ const NewsCardList = ({
     <section className="news-card-list news-card-list_saved-articles">
       <div className="news-card-list__overlay">
         <ul className="news-card-list__card-grid news-card-list__card-grid_saved-articles">
-          {showCards?.map((newscard) => (
+          {savedCardsArray?.map((newscard) => (
             <li className="news-card-list__card" key={newscard._id}>
               <NewsCard
-                // key={newscard._id}
                 data={newscard}
                 onSavedArticlesPage={onSavedArticlesPage}
                 loggedIn={loggedIn}
                 onRemoveArticleClick={onRemoveArticleClick}
                 savedArticles={savedArticles}
-                // onSaveArticleClick={handleSaveArticleClick}
               />
             </li>
           ))}
@@ -142,14 +132,11 @@ const NewsCardList = ({
                 onRemoveArticleClick={onRemoveArticleClick}
                 savedArticles={savedArticles}
                 onSignInClick={onSignInClick}
-                // savedArticlesData={savedArticlesData}
-
-                // image={newscard.urlToImage}
               />
             </li>
           ))}
         </ul>
-        {!onSavedArticlesPage && isButtonHidden && (
+        {!onSavedArticlesPage && !isButtonHidden && (
           <button
             className={`news-card-list__show-more-button`}
             onClick={handleShowMoreCards}
@@ -157,12 +144,6 @@ const NewsCardList = ({
             Show more
           </button>
         )}
-        {/* <button
-          className="news-card-list__show-more-button"
-          onClick={handleShowMoreCards}
-        >
-          Show more
-        </button> */}
       </div>
     </section>
   );
