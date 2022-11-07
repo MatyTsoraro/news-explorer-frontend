@@ -20,7 +20,7 @@ import SuccessfulPopup from "../SuccessfulPopup/SuccessfulPopup";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import mainApi from "../../utils/MainApi";
 import newsApi from "../../utils/NewsApi";
-import { auth } from "../../utils/auth";
+import * as auth from "../../utils/auth";
 
 function App() {
   const history = useHistory();
