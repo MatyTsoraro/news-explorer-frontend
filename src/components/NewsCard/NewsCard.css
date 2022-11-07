@@ -209,11 +209,6 @@
 } */
 
 @media screen and (max-width: 700px) {
-  /* need to check this */
-  .news-card__title {
-    -webkit-line-clamp: 2;
-  }
-
   .news-card__tag {
     top: 16px;
   }
@@ -239,7 +234,7 @@
 @media screen and (max-width: 320px) {
   .news-card {
     width: 288px;
-    height: 440px;
+    height: 495px;
   }
 
   .news-card__image {

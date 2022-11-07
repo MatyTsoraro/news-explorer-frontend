@@ -64,7 +64,7 @@ const Register = ({
           name="password"
           onChange={handleChange}
           value={values.password || ""}
-          minLength="5"
+          minLength="8"
           maxLength="30"
           required
         />
@@ -86,6 +86,8 @@ const Register = ({
           name="name"
           value={values.name || ""}
           onChange={handleChange}
+          minLength="2"
+          maxLength="30"
           required
         />
         <p className="popup__error" id="input-password-error">
