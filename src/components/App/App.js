@@ -145,10 +145,7 @@ function App() {
         .saveArticle(data, searchKeyword, token)
         .then((data) => {
           if (data) {
-            setSavedArticles((savedArticles) => [
-              ...savedArticles,
-              data.article,
-            ]);
+            setSavedArticles((savedArticles) => [...savedArticles, data]);
             console.log("article got saved!");
           }
         })

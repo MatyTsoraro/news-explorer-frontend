@@ -11,7 +11,6 @@ class NewsApi {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
-    // this._apiKey = "4341d5fd9c044edc9eab4ead350587ab";
   }
 
   _processResponse(res) {
@@ -35,7 +34,6 @@ class NewsApi {
 
 const newsApi = new NewsApi({
   baseUrl: PROXY_URL,
-  // baseUrl: "https://newsapi.org/v2/everything",
   headers: { "Content-Type": "application/json" },
 });
 
