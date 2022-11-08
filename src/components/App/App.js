@@ -65,8 +65,8 @@ function App() {
   useEffect(() => {
     mainApi
       .getCurrentUser(token)
-      .then((data) => {
-        setCurrentUser(data.user);
+      .then((user) => {
+        setCurrentUser(user.data);
       })
       .catch((err) => console.log(err));
   }, [token]);
@@ -75,9 +75,9 @@ function App() {
   useEffect(() => {
     mainApi
       .getArticles(token)
-      .then((data) => {
+      .then((articles) => {
         // setShowCards(res.articles);
-        setSavedArticles(data.articles);
+        setSavedArticles(articles.data);
       })
       .catch((err) => console.log(err));
   }, [token]);
