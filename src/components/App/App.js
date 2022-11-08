@@ -178,9 +178,7 @@ function App() {
     mainApi
       .removeArticle(articleId, token)
       .then((data) => {
-        setSavedArticles(
-          savedArticles.filter((obj) => obj._id !== data.article._id)
-        );
+        setSavedArticles(savedArticles.filter((obj) => obj._id !== data._id));
       })
       .catch((err) => console.log(err));
   }
