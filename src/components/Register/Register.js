@@ -8,7 +8,6 @@ const Register = ({
   onRegisterSubmit,
   onSignInClick,
   hasError,
-  // name,
 }) => {
   const { values, handleChange, errors, isValid, handleFormReset } =
     useFormValidation();

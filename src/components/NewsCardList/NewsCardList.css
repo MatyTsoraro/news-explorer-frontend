@@ -55,7 +55,7 @@
   text-align: center;
   transition: background-color 0.4s ease;
 
-  display: block; /* check this */
+  display: block;
 }
 
 .news-card-list__show-more-button:hover {
@@ -102,10 +102,9 @@
   }
 }
 
-/* Temporary, might remove it */
 @media screen and (max-width: 520px) {
   .news-card-list {
-    padding: 24px 16px; /* 24px 16px 24px 16px */
+    padding: 24px 16px;
   }
 }
 

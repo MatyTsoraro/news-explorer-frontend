@@ -67,7 +67,7 @@
 
 .search-form__input:focus {
   /* outline: none; */
-  outline: 2px solid #2f71e5;
+  outline: 2px ridge #2f71e5;
 }
 
 ::placeholder {

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-const SearchForm = ({
-  searchKeyword,
-  setSearchKeyword,
-  // setIsNewsCardListOpen,
-  onSearch,
-}) => {
+const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
   const [formInputValue, setFormInputValue] = useState("");
   const [placeholderText, setPlaceholderText] = useState("Enter topic");
 
@@ -22,10 +17,6 @@ const SearchForm = ({
     } else {
       onSearch(searchKeyword);
     }
-
-    // setIsNewsCardListOpen(true);
-
-    // setFormInputValue("");
   }
 
   return (

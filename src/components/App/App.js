@@ -179,7 +179,7 @@ function App() {
     }
 
     mainApi
-      .removeArticle(_id, token)
+      .removeArticle(articleId, token)
       .then((data) => {
         setSavedArticles(
           savedArticles.filter((obj) => obj._id !== data.article._id)
@@ -310,10 +310,6 @@ function App() {
           </ProtectedRoute>
         </Switch>
         <SignIn
-          // email={email}
-          // password={password}
-          // setEmail={setEmail}
-          // setPassword={setPassword}
           isOpen={isSignInOpen}
           onClose={closeAllPopups}
           onSignUpClick={handleSignUpClick}
@@ -321,10 +317,6 @@ function App() {
           hasError={hasError}
         />
         <Register
-          // email={email}
-          // password={password}
-          // setEmail={setEmail}
-          // setPassword={setPassword}
           isOpen={isSignUpOpen}
           onClose={closeAllPopups}
           onSignInClick={handleSignInClick}

@@ -64,7 +64,7 @@
   justify-content: center;
   box-sizing: border-box;
 
-  padding: 12px; /* check this */
+  padding: 12px;
 }
 
 .header__log-button_logged-in {

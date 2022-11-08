@@ -63,7 +63,7 @@ const SignIn = ({
           name="password"
           onChange={handleChange}
           value={values.password || ""}
-          minLength="5"
+          minLength="8"
           maxLength="30"
           required
         />

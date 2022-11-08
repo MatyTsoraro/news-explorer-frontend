@@ -19,16 +19,6 @@ const NewsCardList = ({
   const [next, setNext] = useState(3);
   const [isButtonHidden, setIsButtonHidden] = useState(false);
 
-  // useEffect(() => {
-  //   mainApi
-  //     .getArticles(token)
-  //     .then((res) => {
-  //       setShowCards(res.articles);
-  //       setSavedArticlesData(res.articles);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   /* It starts with 3 new cards (on saved article page, 
     it will show all cards) */
   useEffect(() => {
@@ -59,45 +49,6 @@ const NewsCardList = ({
     setShowCards(cards.slice(0, next + NUMBER_CARDS));
     setNext(next + NUMBER_CARDS);
   }
-
-  // return (
-  //   <section
-  //     className={`news-card-list ${
-  //       onSavedArticlesPage && "news-card-list_saved-articles"
-  //     }`}
-  //   >
-  //     <div className="news-card-list__overlay">
-  //       {!onSavedArticlesPage && (
-  //         <h3 className="news-card-list__title">Search results</h3>
-  //       )}
-  //       <ul
-  //         className={`news-card-list__card-grid ${
-  //           onSavedArticlesPage && "news-card-list__card-grid_saved-articles"
-  //         }`}
-  //       >
-  //         {showCards?.map((newscard, index) => (
-  //           <li className="news-card-list__card" key={index}>
-  //             <NewsCard
-  //               // key={newscard._id}
-  //               data={newscard}
-  //               onSavedArticlesPage={onSavedArticlesPage}
-  //               loggedIn={loggedIn}
-  //               // onSaveArticleClick={handleSaveArticleClick}
-  //             />
-  //           </li>
-  //         ))}
-  //       </ul>
-  //       {!onSavedArticlesPage && (
-  //         <button
-  //           className="news-card-list__show-more-button"
-  //           onClick={handleShowMoreCards}
-  //         >
-  //           Show more
-  //         </button>
-  //       )}
-  //     </div>
-  //   </section>
-  // );
 
   return onSavedArticlesPage ? (
     <section className="news-card-list news-card-list_saved-articles">
