@@ -66,7 +66,7 @@ function App() {
     mainApi
       .getCurrentUser(token)
       .then((user) => {
-        setCurrentUser(user.data);
+        setCurrentUser(user);
       })
       .catch((err) => console.log(err));
   }, [token]);
@@ -76,7 +76,7 @@ function App() {
     mainApi
       .getArticles(token)
       .then((articles) => {
-        setSavedArticles(articles.data);
+        setSavedArticles(articles);
       })
       .catch((err) => console.log(err));
   }, [token]);
