@@ -42,16 +42,11 @@ function App() {
   const [isSuccessfulPopupOpen, setIsSuccessfulPopupOpen] = useState(false);
   const [hasResults, setHasResults] = useState(false);
 
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
   const location = useLocation().pathname.substring(1);
   const [hasError, setHasError] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
   const [showCards, setShowCards] = useState([]);
   const [savedCardsArray, setSavedCardsArray] = useState([]);
-
-  // const [savedArticlesData, setSavedArticlesData] = useState([]);
 
   // User token check
   useEffect(() => {
@@ -66,22 +61,12 @@ function App() {
     }
   }, [history, token]);
 
-  // useEffect(() => {
-  //   mainApi
-  //     .getCurrentUser()
-  //     .then((res) => {
-  //       setCurrentUser(res.user);
-  //       // console.log("USER", res.user);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   // GETting the current user info
   useEffect(() => {
     mainApi
       .getCurrentUser(token)
-      .then((res) => {
-        setCurrentUser(res.user);
+      .then((data) => {
+        setCurrentUser(data.user);
       })
       .catch((err) => console.log(err));
   }, [token]);
@@ -90,9 +75,9 @@ function App() {
   useEffect(() => {
     mainApi
       .getArticles(token)
-      .then((res) => {
+      .then((data) => {
         // setShowCards(res.articles);
-        setSavedArticles(res.articles);
+        setSavedArticles(data.articles);
       })
       .catch((err) => console.log(err));
   }, [token]);
@@ -117,23 +102,6 @@ function App() {
     document.addEventListener("keydown", handleEscapeClose);
     return () => document.removeEventListener("keydown", handleEscapeClose);
   }, []);
-
-  // useEffect(() => {
-  //   if (searchKeyword) {
-  //     setHasResults(true);
-  //   } else {
-  //     setHasResults(false);
-  //   }
-  // }, [searchKeyword]);
-
-  // useEffect(() => {
-  //   mainApi
-  //     .getArticles()
-  //     .then((res) => {
-  //       setSavedArticlesData(res);
-  //     })
-  //     .catch((err) => console.log(err));
-  // });
 
   function handleRegisterSubmit(email, password, name) {
     auth
