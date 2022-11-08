@@ -17,7 +17,9 @@ const NewsCard = ({
   which turns into marked blue icon  */
   useEffect(() => {
     if (savedArticles) {
-      setIsSaved(savedArticles.find((article) => article.title === data.title));
+      setIsSaved(
+        savedArticles.find((article) => article.data.title === data.title)
+      );
     }
   }, [data.title, savedArticles]);
 
