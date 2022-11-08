@@ -182,7 +182,7 @@ function App() {
       .removeArticle(articleId, token)
       .then((data) => {
         setSavedArticles(
-          savedArticles.filter((obj) => obj._id !== data.article._id)
+          savedArticles.filter((articleId) => articleId !== data.article._id)
         );
       })
       .catch((err) => console.log(err));
