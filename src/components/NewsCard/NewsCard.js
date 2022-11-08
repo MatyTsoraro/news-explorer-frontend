@@ -91,7 +91,7 @@ const NewsCard = ({
         onClick={() => {
           handleSave(data);
           /* If the user is not logged in, then the sign in popup 
-          will open on click */
+          will open when clicking to save */
           !loggedIn && onSignInClick();
         }}
       ></button>
@@ -112,7 +112,6 @@ const NewsCard = ({
           alt={data.title}
         />
       </a>
-
       <div className="news-card__overlay">
         <p className="news-card__date">{convertDate()}</p>
         <h2 className="news-card__title">{data.title}</h2>

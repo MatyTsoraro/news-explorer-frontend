@@ -57,25 +57,6 @@ class Api {
     });
   }
 
-  //   saveArticle({ keyword, title, text, date, source, link, image }) {
-  //     return fetch(`${this.baseUrl}/articles`, {
-  //       method: "POST",
-  //       headers: this.headers,
-  //       body: JSON.stringify({
-  //         keyword,
-  //         title,
-  //         text,
-  //         date,
-  //         source,
-  //         link,
-  //         image,
-  //       }),
-  //     }).then((res) => {
-  //       console.log(res);
-  //       return this._processResponse;
-  //     });
-  //   }
-
   saveArticle(data, searchKeyword, token) {
     // Grabbing most keys from data
     const {

@@ -49,7 +49,6 @@ const SignIn = ({
           {errors.email || ""}
         </p>
       </div>
-
       <div className="popup__input-overlay">
         <label className="popup__input-label" htmlFor="password-input">
           Password
@@ -71,13 +70,11 @@ const SignIn = ({
           {errors.password || ""}
         </p>
       </div>
-
       {hasError && (
         <p className="popup__error popup__error_type_form">
           Incorrect email or password
         </p>
       )}
-
       <button
         className={`popup__submit-button ${
           isValid ? "popup__submit-button_active" : ""

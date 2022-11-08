@@ -76,11 +76,19 @@ function App() {
     mainApi
       .getArticles(token)
       .then((articles) => {
-        // setShowCards(res.articles);
         setSavedArticles(articles.data);
       })
       .catch((err) => console.log(err));
   }, [token]);
+
+  // useEffect(() => {
+  //   Promise.all([mainApi.getCurrentUser(token), mainApi.getArticles(token)])
+  //     .then(([user, articles]) => {
+  //       setCurrentUser(user.data);
+  //       setSavedArticles(articles.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [token]);
 
   // Determines if user is on the saved-articles page
   useEffect(() => {
@@ -102,41 +110,6 @@ function App() {
     document.addEventListener("keydown", handleEscapeClose);
     return () => document.removeEventListener("keydown", handleEscapeClose);
   }, []);
-
-  function handleRegisterSubmit(email, password, name) {
-    auth
-      .register(email, password, name)
-      .then((res) => {
-        if (res) {
-          setIsRegistered(true);
-          handleRegister();
-        } else {
-          setIsRegistered(false);
-          setHasError(true);
-        }
-      })
-      .catch((err) => {
-        console.log(`This email is unavailable: ${err.message}`);
-        setHasError(true);
-      });
-  }
-
-  function handleLoginSubmit(email, password) {
-    auth
-      .login(email, password)
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-          setToken(data.token);
-          handleLogin();
-          history.push("/");
-        }
-      })
-      .catch((err) => {
-        console.log(`Incorrect email or password: ${err.message}`);
-        setHasError(true);
-      });
-  }
 
   // Saving an article and adds it to the array of articles
   function handleSaveArticle(data) {
@@ -235,6 +208,41 @@ function App() {
     setHasError(false);
     setIsSignUpOpen(true);
     setIsSignInOpen(false);
+  }
+
+  function handleRegisterSubmit(email, password, name) {
+    auth
+      .register(email, password, name)
+      .then((res) => {
+        if (res) {
+          setIsRegistered(true);
+          handleRegister();
+        } else {
+          setIsRegistered(false);
+          setHasError(true);
+        }
+      })
+      .catch((err) => {
+        console.log(`This email is unavailable: ${err.message}`);
+        setHasError(true);
+      });
+  }
+
+  function handleLoginSubmit(email, password) {
+    auth
+      .login(email, password)
+      .then((data) => {
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+          setToken(data.token);
+          handleLogin();
+          history.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(`Incorrect email or password: ${err.message}`);
+        setHasError(true);
+      });
   }
 
   function closeAllPopups() {
