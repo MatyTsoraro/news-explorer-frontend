@@ -143,9 +143,9 @@ function App() {
     if (!savedArticles.find((obj) => obj.title === data.title)) {
       mainApi
         .saveArticle(data, searchKeyword, token)
-        .then((data) => {
-          if (data) {
-            setSavedArticles((savedArticles) => [...savedArticles, data.data]);
+        .then((res) => {
+          if (res) {
+            setSavedArticles((savedArticles) => [...savedArticles, res.data]);
             console.log("article got saved!");
           }
         })
