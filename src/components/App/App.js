@@ -20,13 +20,16 @@ import SuccessfulPopup from "../SuccessfulPopup/SuccessfulPopup";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import mainApi from "../../utils/MainApi";
 import newsApi from "../../utils/NewsApi";
-import * as auth from "../../utils/auth";
+// import * as auth from "../../utils/auth";
+
+import { auth } from "../../utils/auth";
 
 function App() {
   const history = useHistory();
 
   const [currentUser, setCurrentUser] = useState({});
-  const [token, setToken] = useState(localStorage.getItem("jwt"));
+
+  // const [token, setToken] = useState(localStorage.getItem("jwt"));
 
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -49,46 +52,64 @@ function App() {
   const [savedCardsArray, setSavedCardsArray] = useState([]);
 
   // User token check
+  // useEffect(() => {
+  //   if (token) {
+  //     auth
+  //       .checkToken(token)
+  //       .then((res) => {
+  //         setLoggedIn(true);
+  //         history.push("/");
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // }, [history, token]);
+
+  // testing it !
   useEffect(() => {
+    const token = localStorage.getItem("jwt");
     if (token) {
+      const token = localStorage.getItem("jwt");
       auth
         .checkToken(token)
         .then((res) => {
-          setLoggedIn(true);
-          history.push("/");
+          if (res) {
+            setLoggedIn(true);
+            history.push("/");
+          }
         })
         .catch((err) => console.log(err));
     }
-  }, [history, token]);
+  }, [history]);
 
   // GETting the current user info
-  useEffect(() => {
-    mainApi
-      .getCurrentUser(token)
-      .then((user) => {
-        setCurrentUser(user.data);
-      })
-      .catch((err) => console.log(err));
-  }, [token]);
-
-  // GETting saved-articles
-  useEffect(() => {
-    mainApi
-      .getArticles(token)
-      .then((articles) => {
-        setSavedArticles(articles.data);
-      })
-      .catch((err) => console.log(err));
-  }, [token]);
-
   // useEffect(() => {
-  //   Promise.all([mainApi.getCurrentUser(token), mainApi.getArticles(token)])
-  //     .then(([user, articles]) => {
+  //   mainApi
+  //     .getCurrentUser(token)
+  //     .then((user) => {
   //       setCurrentUser(user.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [token]);
+
+  // // GETting saved-articles
+  // useEffect(() => {
+  //   mainApi
+  //     .getArticles(token)
+  //     .then((articles) => {
   //       setSavedArticles(articles.data);
   //     })
   //     .catch((err) => console.log(err));
   // }, [token]);
+
+  // testing it !
+  useEffect(() => {
+    Promise.all([mainApi.getCurrentUser(), mainApi.getArticles()])
+      .then(([user, articles]) => {
+        setCurrentUser(user.data);
+        setSavedArticles(articles.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   // Determines if user is on the saved-articles page
   useEffect(() => {
@@ -112,10 +133,27 @@ function App() {
   }, []);
 
   // Saving an article and adds it to the array of articles
+  // function handleSaveArticle(data) {
+  //   if (!savedArticles.find((obj) => obj.title === data.title)) {
+  //     mainApi
+  //       .saveArticle(data, searchKeyword, token)
+  //       .then((res) => {
+  //         if (res) {
+  //           setSavedArticles((savedArticles) => [...savedArticles, res.data]);
+  //           console.log("article got saved!");
+  //         }
+  //       })
+  //       .catch((err) => console.log(err));
+  //   } else {
+  //     console.log("Sorry, but it is already got saved");
+  //   }
+  // }
+
+  // testing it !
   function handleSaveArticle(data) {
     if (!savedArticles.find((obj) => obj.title === data.title)) {
       mainApi
-        .saveArticle(data, searchKeyword, token)
+        .saveArticle(data, searchKeyword)
         .then((res) => {
           if (res) {
             setSavedArticles((savedArticles) => [...savedArticles, res.data]);
@@ -129,6 +167,34 @@ function App() {
   }
 
   // DELETE-ing article and removes it from the array
+  // function handleRemoveArticle(data) {
+  //   let articleId;
+
+  //   /* If on the homepage then find the corresponding saved article
+  //    which matches the news API articleId, and if on the saved articles page
+  //    then simply saving the data id to the articleId */
+  //   if (!onSavedArticlesPage) {
+  //     if (savedArticles.find((obj) => obj.link === data.url)) {
+  //       const article = savedArticles.find((obj) => {
+  //         return obj.link === data.url;
+  //       });
+  //       articleId = article._id;
+  //     } else {
+  //       console.log("Sorry, this card does not exist!");
+  //     }
+  //   } else {
+  //     articleId = data._id;
+  //   }
+
+  //   mainApi
+  //     .removeArticle(articleId, token)
+  //     .then((data) => {
+  //       setSavedArticles(savedArticles.filter((obj) => obj._id !== data._id));
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
+
+  // testing it !
   function handleRemoveArticle(data) {
     let articleId;
 
@@ -149,7 +215,7 @@ function App() {
     }
 
     mainApi
-      .removeArticle(articleId, token)
+      .removeArticle(articleId)
       .then((data) => {
         setSavedArticles(savedArticles.filter((obj) => obj._id !== data._id));
       })
@@ -182,6 +248,9 @@ function App() {
   function handleLogOut() {
     setLoggedIn(false);
     localStorage.removeItem("jwt");
+
+    api.updateAuthUserToken(""); // testing it !
+
     history.push("/");
   }
 
@@ -215,6 +284,8 @@ function App() {
       .register(email, password, name)
       .then((res) => {
         if (res) {
+          mainApi.updatedAuthUserToken(localStorage.getItem("jwt")); // testing it !
+
           setIsRegistered(true);
           handleRegister();
         } else {
@@ -228,16 +299,32 @@ function App() {
       });
   }
 
+  // function handleLoginSubmit(email, password) {
+  //   auth
+  //     .login(email, password)
+  //     .then((data) => {
+  //       if (data.token) {
+  //         localStorage.setItem("jwt", data.token);
+  //         setToken(data.token);
+  //         handleLogin();
+  //         history.push("/");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(`Incorrect email or password: ${err.message}`);
+  //       setHasError(true);
+  //     });
+  // }
+
+  // testing it !
   function handleLoginSubmit(email, password) {
     auth
       .login(email, password)
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-          setToken(data.token);
-          handleLogin();
-          history.push("/");
-        }
+      .then(() => {
+        api.updatedAuthUserToken(localStorage.getItem("jwt"));
+
+        handleLogin();
+        history.push("/");
       })
       .catch((err) => {
         console.log(`Incorrect email or password: ${err.message}`);

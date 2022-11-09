@@ -1,4 +1,6 @@
-import { BASE_URL } from "./constants";
+// import { BASE_URL } from "./constants";
+
+import { baseUrl, headers } from "./constants";
 
 class Api {
   constructor({ baseUrl, headers }) {
@@ -15,49 +17,84 @@ class Api {
   }
 
   // When the user logs in or logs out, update the user token in the request header.
-  //   updatedAuthUserToken = (token) => {
-  //     this.headers = { ...this.headers, authorization: `Bearer ${token}` };
-  //   };
+  updatedAuthUserToken = (token) => {
+    this.headers = { ...this.headers, authorization: `Bearer ${token}` };
+  };
 
-  //   getCurrentUser() {
-  //     return fetch(`${this.baseUrl}/users/me`, {
-  //       method: "GET",
-  //       headers: this.headers,
-  //     }).then(this._processResponse);
-  //   }
-
-  getCurrentUser(token) {
+  getCurrentUser() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      return this._processResponse(res);
-    });
+      headers: this.headers,
+    }).then(this._processResponse);
   }
 
-  //   getArticles() {
-  //     return fetch(`${this.baseUrl}/articles`, {
-  //       method: "GET",
-  //       headers: this.headers,
-  //     }).then(this._processResponse);
-  //   }
+  // getCurrentUser(token) {
+  //   return fetch(`${this.baseUrl}/users/me`, {
+  //     method: "GET",
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then((res) => {
+  //     return this._processResponse(res);
+  //   });
+  // }
 
-  getArticles(token) {
+  getArticles() {
     return fetch(`${this.baseUrl}/articles`, {
       method: "GET",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      return this._processResponse(res);
-    });
+      headers: this.headers,
+    }).then(this._processResponse);
   }
 
-  saveArticle(data, searchKeyword, token) {
+  // getArticles(token) {
+  //   return fetch(`${this.baseUrl}/articles`, {
+  //     method: "GET",
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then((res) => {
+  //     return this._processResponse(res);
+  //   });
+  // }
+
+  // saveArticle(data, searchKeyword, token) {
+  //   // Grabbing most keys from data
+  //   const {
+  //     title,
+  //     description: text,
+  //     publishedAt: date,
+  //     url: link,
+  //     urlToImage: image,
+  //   } = data;
+  //   // Grabbing source from data object
+  //   const source = data.source.name;
+  //   // Grabbing keyword from the first letter that capitalized
+  //   const keyword =
+  //     searchKeyword.charAt(0).toUpperCase() + searchKeyword.slice(1);
+
+  //   return fetch(`${this.baseUrl}/articles`, {
+  //     method: "POST",
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       keyword,
+  //       title,
+  //       text,
+  //       date,
+  //       source,
+  //       link,
+  //       image,
+  //     }),
+  //   }).then((res) => {
+  //     return this._processResponse(res);
+  //   });
+  // }
+
+  saveArticle(data, searchKeyword) {
     // Grabbing most keys from data
     const {
       title,
@@ -74,10 +111,7 @@ class Api {
 
     return fetch(`${this.baseUrl}/articles`, {
       method: "POST",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
       body: JSON.stringify({
         keyword,
         title,
@@ -92,19 +126,30 @@ class Api {
     });
   }
 
-  removeArticle(id, token) {
+  // removeArticle(id, token) {
+  //   return fetch(`${this.baseUrl}/articles/${id}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then((res) => {
+  //     return this._processResponse(res);
+  //   });
+  // }
+
+  removeArticle(id) {
     return fetch(`${this.baseUrl}/articles/${id}`, {
       method: "DELETE",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: this.headers,
     }).then((res) => {
       return this._processResponse(res);
     });
   }
 }
 
-const mainApi = new Api({ baseUrl: BASE_URL });
+// const mainApi = new Api({ baseUrl: BASE_URL });
+
+const mainApi = new Api({ baseUrl, headers });
 
 export default mainApi;
