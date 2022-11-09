@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SearchForm.css";
 
 const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
@@ -9,10 +9,6 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
     setSearchKeyword(evt.target.value);
     setFormInputValue(evt.target.value);
   }
-
-  useEffect(() => {
-    handleChange();
-  }, [onSearch, handleChange]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
