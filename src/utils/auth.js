@@ -48,7 +48,7 @@ class Auth {
       body: JSON.stringify({ email, password, name }),
     })
       .then((res) => {
-        return processResponse(res);
+        return this.processResponse(res);
       })
       .then((res) => {
         return res;
@@ -84,7 +84,7 @@ class Auth {
       body: JSON.stringify({ email, password }),
     })
       .then((res) => {
-        return processResponse(res);
+        return this.processResponse(res);
       })
       .then((data) => {
         localStorage.setItem("jwt", data.token);
@@ -117,7 +117,7 @@ class Auth {
       },
     })
       .then((res) => {
-        return processResponse(res);
+        return this.processResponse(res);
       })
       .then((data) => data);
   }

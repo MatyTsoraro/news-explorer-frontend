@@ -249,7 +249,7 @@ function App() {
     setLoggedIn(false);
     localStorage.removeItem("jwt");
 
-    api.updateAuthUserToken(""); // testing it !
+    mainApi.updateAuthUserToken(""); // testing it !
 
     history.push("/");
   }
@@ -321,7 +321,7 @@ function App() {
     auth
       .login(email, password)
       .then(() => {
-        api.updatedAuthUserToken(localStorage.getItem("jwt"));
+        mainApi.updatedAuthUserToken(localStorage.getItem("jwt"));
 
         handleLogin();
         history.push("/");
@@ -390,7 +390,7 @@ function App() {
               loggedIn={loggedIn}
               savedArticles={savedArticles}
               setSavedArticles={setSavedArticles}
-              token={token}
+              // token={token}
               showCards={showCards}
               setShowCards={setShowCards}
               savedCardsArray={savedCardsArray}
