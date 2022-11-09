@@ -61,50 +61,38 @@ function App() {
     }
   }, [history, token]);
 
+  // GETting the current user info
   // useEffect(() => {
-  //   const token = localStorage.getItem("jwt");
-  //   if (token) {
-  //     const token = localStorage.getItem("jwt");
-  //     auth
-  //       .checkToken(token)
-  //       .then((res) => {
-  //         if (res) {
-  //           setLoggedIn(true);
-  //           history.push("/");
-  //         }
+  //   if (loggedIn) {
+  //     mainApi
+  //       .getCurrentUser(token)
+  //       .then((user) => {
+  //         setCurrentUser(user.data);
   //       })
   //       .catch((err) => console.log(err));
   //   }
-  // }, [history]);
-
-  // GETting the current user info
-  useEffect(() => {
-    mainApi
-      .getCurrentUser(token)
-      .then((user) => {
-        setCurrentUser(user.data);
-      })
-      .catch((err) => console.log(err));
-  }, [token]);
+  // }, [token]);
 
   // GETting saved-articles
-  useEffect(() => {
-    mainApi
-      .getArticles(token)
-      .then((articles) => {
-        setSavedArticles(articles.data);
-      })
-      .catch((err) => console.log(err));
-  }, [token]);
-
   // useEffect(() => {
-  //   Promise.all([mainApi.getCurrentUser(), mainApi.getArticles(token)])
-  //     .then(([user, articles]) => {
-  //       setCurrentUser(user.data);
+  //   mainApi
+  //     .getArticles(token)
+  //     .then((articles) => {
   //       setSavedArticles(articles.data);
   //     })
   //     .catch((err) => console.log(err));
   // }, [token]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      Promise.all([mainApi.getCurrentUser(token), mainApi.getArticles(token)])
+        .then(([user, articles]) => {
+          setCurrentUser(user.data);
+          setSavedArticles(articles.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [token]);
 
   // Determines if user is on the saved-articles page
   useEffect(() => {
@@ -262,21 +250,6 @@ function App() {
         setHasError(true);
       });
   }
-
-  // function handleLoginSubmit(email, password) {
-  //   auth
-  //     .login(email, password)
-  //     .then(() => {
-  //       api.updatedAuthUserToken(localStorage.getItem("jwt"));
-
-  //       handleLogin();
-  //       history.push("/");
-  //     })
-  //     .catch((err) => {
-  //       console.log(`Incorrect email or password: ${err.message}`);
-  //       setHasError(true);
-  //     });
-  // }
 
   function closeAllPopups() {
     setIsSignInOpen(false);
