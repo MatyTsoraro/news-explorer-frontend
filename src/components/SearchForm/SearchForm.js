@@ -43,9 +43,12 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
             placeholder={placeholderText}
             value={formInputValue}
             onChange={handleChange}
-            onReset={handleResetInputField}
           ></input>
-          <button className="search-form__button" type="submit">
+          <button
+            className="search-form__button"
+            type="submit"
+            onClick={handleResetInputField}
+          >
             Search
           </button>
         </form>
