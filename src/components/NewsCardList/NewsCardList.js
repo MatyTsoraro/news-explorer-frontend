@@ -33,7 +33,7 @@ const NewsCardList = ({
     }
   }, [onSavedArticlesPage, savedArticles, setSavedCardsArray]);
 
-  /* Shows only the show more button while the number of 
+  /* Shows only the button show more, while the number of 
   cards are shown is smaller than the total */
   useEffect(() => {
     if (showCards?.length < cards?.length) {

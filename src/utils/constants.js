@@ -5,12 +5,6 @@ const NUMBER_ARTICLES = 100;
 
 const BASE_URL =
   "https://api.chen23-news-explorer.students.nomoredomainssbs.ru";
-// const baseUrl = BASE_URL;
-
-// const BASE_URL =
-//   process.env.NODE_ENV === "production"
-//     ? "https://api.chen23-news-explorer.students.nomoredomainssbs.ru"
-//     : "http://localhost:3000";
 
 module.exports = {
   API_KEY,

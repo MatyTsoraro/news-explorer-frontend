@@ -14,18 +14,6 @@ class Api {
     }
   }
 
-  // When the user logs in or logs out, update the user token in the request header.
-  //   updatedAuthUserToken = (token) => {
-  //     this.headers = { ...this.headers, authorization: `Bearer ${token}` };
-  //   };
-
-  //   getCurrentUser() {
-  //     return fetch(`${this.baseUrl}/users/me`, {
-  //       method: "GET",
-  //       headers: this.headers,
-  //     }).then(this._processResponse);
-  //   }
-
   getCurrentUser(token) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
@@ -37,13 +25,6 @@ class Api {
       return this._processResponse(res);
     });
   }
-
-  //   getArticles() {
-  //     return fetch(`${this.baseUrl}/articles`, {
-  //       method: "GET",
-  //       headers: this.headers,
-  //     }).then(this._processResponse);
-  //   }
 
   getArticles(token) {
     return fetch(`${this.baseUrl}/articles`, {

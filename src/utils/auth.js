@@ -1,11 +1,5 @@
 import { BASE_URL } from "./constants";
 
-// class Auth {
-//   constructor({ baseUrl, headers }) {
-//     this.baseUrl = baseUrl;
-//     this.headers = headers;
-//   }
-
 function processResponse(res) {
   if (res.ok) {
     return res.json();
@@ -67,16 +61,3 @@ export function checkToken(token) {
     })
     .then((data) => data);
 }
-// }
-
-// const BASE_URL =
-//   process.env.NODE_ENV === "production"
-//     ? "https://api.chen23-around-us.students.nomoredomainssbs.ru"
-//     : "http://localhost:3000";
-
-// export const auth = new Auth({
-//   baseUrl: BASE_URL,
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });

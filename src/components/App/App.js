@@ -61,28 +61,7 @@ function App() {
     }
   }, [history, token]);
 
-  // GETting the current user info
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     mainApi
-  //       .getCurrentUser(token)
-  //       .then((user) => {
-  //         setCurrentUser(user.data);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [token]);
-
-  // GETting saved-articles
-  // useEffect(() => {
-  //   mainApi
-  //     .getArticles(token)
-  //     .then((articles) => {
-  //       setSavedArticles(articles.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [token]);
-
+  // GETting current user and articles if the user logged in
   useEffect(() => {
     if (loggedIn) {
       Promise.all([mainApi.getCurrentUser(token), mainApi.getArticles(token)])
@@ -186,7 +165,6 @@ function App() {
   function handleLogOut() {
     setLoggedIn(false);
     localStorage.removeItem("jwt");
-    // api.updateAuthUserToken("");
     history.push("/");
   }
 
@@ -220,7 +198,6 @@ function App() {
       .register(email, password, name)
       .then((res) => {
         if (res) {
-          // mainApi.updatedAuthUserToken(localStorage.getItem("jwt"));
           setIsRegistered(true);
           handleRegister();
         } else {
