@@ -5,24 +5,17 @@ const NUMBER_ARTICLES = 100;
 
 const BASE_URL =
   "https://api.chen23-news-explorer.students.nomoredomainssbs.ru";
-const baseUrl = BASE_URL;
+// const baseUrl = BASE_URL;
 
 // const BASE_URL =
 //   process.env.NODE_ENV === "production"
 //     ? "https://api.chen23-news-explorer.students.nomoredomainssbs.ru"
 //     : "http://localhost:3000";
 
-const headers = {
-  authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  "Content-Type": "application/json",
-};
-
 module.exports = {
   API_KEY,
   PROXY_URL,
   NUMBER_CARDS,
   NUMBER_ARTICLES,
-  // BASE_URL,
-  baseUrl,
-  headers,
+  BASE_URL,
 };
