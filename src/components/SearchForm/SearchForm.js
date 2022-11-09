@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchForm.css";
 
 const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
@@ -10,9 +10,9 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
     setFormInputValue(evt.target.value);
   }
 
-  function handleResetInputField() {
-    setFormInputValue("");
-  }
+  useEffect(() => {
+    handleChange();
+  }, [onSearch, handleChange]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -43,11 +43,7 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
             value={formInputValue}
             onChange={handleChange}
           ></input>
-          <button
-            className="search-form__button"
-            type="submit"
-            onClick={handleResetInputField}
-          >
+          <button className="search-form__button" type="submit">
             Search
           </button>
         </form>
