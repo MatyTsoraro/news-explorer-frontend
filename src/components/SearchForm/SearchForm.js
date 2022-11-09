@@ -11,7 +11,6 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
   }
 
   function handleResetInputField() {
-    setSearchKeyword("");
     setFormInputValue("");
   }
 
