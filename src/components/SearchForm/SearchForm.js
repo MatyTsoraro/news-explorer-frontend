@@ -10,6 +10,10 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
     setFormInputValue(evt.target.value);
   }
 
+  function handleResetInputField() {
+    setFormInputValue("");
+  }
+
   function handleSubmit(evt) {
     evt.preventDefault();
     if (!formInputValue) {
@@ -38,6 +42,7 @@ const SearchForm = ({ searchKeyword, setSearchKeyword, onSearch }) => {
             placeholder={placeholderText}
             value={formInputValue}
             onChange={handleChange}
+            onReset={handleResetInputField}
           ></input>
           <button className="search-form__button" type="submit">
             Search
