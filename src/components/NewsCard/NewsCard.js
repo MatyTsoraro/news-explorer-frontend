@@ -89,10 +89,13 @@ const NewsCard = ({
           loggedIn && isSaved ? "news-card__button_save_active" : ""
         }`}
         onClick={() => {
-          handleSave(data);
-          /* If the user is not logged in, then the sign in popup 
+          if (loggedIn) {
+            handleSave(data);
+          } else {
+            /* If the user is not logged in, then the sign in popup 
           will open when clicking to save */
-          !loggedIn && onSignInClick();
+            onSignInClick();
+          }
         }}
       ></button>
       {!loggedIn && (
