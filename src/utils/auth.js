@@ -55,9 +55,7 @@ export function checkToken(token) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  })
-    .then((res) => {
-      return processResponse(res);
-    })
-    .then((data) => data);
+  }).then((res) => {
+    return processResponse(res);
+  });
 }

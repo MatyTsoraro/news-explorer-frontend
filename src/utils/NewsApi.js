@@ -21,14 +21,17 @@ class NewsApi {
     }
   }
 
+  _request(url, options) {
+    return fetch(url, options).then(this._processResponse);
+  }
+
   searchArticles(keyword) {
-    return fetch(
+    return this._request(
       `${
         this._baseUrl
       }?q=${keyword}&from=${weekAgo.toISOString()}&to=${today.toISOString()}&language=en&sortBy=relevancy&pageSize=${NUMBER_ARTICLES}&apiKey=${API_KEY}`
     )
-      .then((res) => this._processResponse(res))
-      .then((res) => res.articles);
+    .then((res) => res.articles);
   }
 }
 

@@ -14,27 +14,27 @@ class Api {
     }
   }
 
+  _request(url, options) {
+    return fetch(url, options).then(this._processResponse);
+  }
+
   getCurrentUser(token) {
-    return fetch(`${this.baseUrl}/users/me`, {
+    return this._request(`${this.baseUrl}/users/me`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      return this._processResponse(res);
     });
   }
 
   getArticles(token) {
-    return fetch(`${this.baseUrl}/articles`, {
+    return this._request(`${this.baseUrl}/articles`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      return this._processResponse(res);
     });
   }
 
@@ -53,7 +53,7 @@ class Api {
     const keyword =
       searchKeyword.charAt(0).toUpperCase() + searchKeyword.slice(1);
 
-    return fetch(`${this.baseUrl}/articles`, {
+    return this._request(`${this.baseUrl}/articles`, {
       method: "POST",
       headers: {
         authorization: `Bearer ${token}`,
@@ -68,20 +68,16 @@ class Api {
         link,
         image,
       }),
-    }).then((res) => {
-      return this._processResponse(res);
     });
   }
 
   removeArticle(id, token) {
-    return fetch(`${this.baseUrl}/articles/${id}`, {
+    return this._request(`${this.baseUrl}/articles/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      return this._processResponse(res);
     });
   }
 }
