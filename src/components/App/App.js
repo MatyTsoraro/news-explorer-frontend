@@ -71,7 +71,7 @@ function App() {
         })
         .catch((err) => console.log(err));
     }
-  }, [token]);
+  }, [token, history]);
 
   // Determines if user is on the saved-articles page
   useEffect(() => {
