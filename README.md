@@ -2,12 +2,18 @@
 
 # News Explorer Service App 📰🌐🗺️
 
-## Overview
+## **Developed By Chen Abudi** 👩‍💻‍
+
+## 📢 Overview
 
 - Intro
 - Technologies & Techniques
+- Live Project
+- Additional Links
+- Possible Improvements
+- All Project Features
 
-## Intro
+## 🔎 Intro
 
 This is the Frontend of a News Explorer Service App, where users can search for news articles worldwide and save them to their own accounts. The app developed with React.
 
@@ -18,76 +24,79 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 - CSS3
 - React Router Dom
 - Responsive Layout
+- JWT server Auth
+- newsapi.org - provides articles news
+- Deployed to _GCP_ (Google Cloud Platform)
 
-## **Evolving project, Stay tuned ! 🌺👋🏽**
+| NPM Packages (Backend)               |                                                                                                                                                                                                       Aspects of Use |
+| :----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| bcryptjs                             |                                                                                                                                                                                                  Password Encryption |
+| body-parser                          |                                                                                                                              Returns middlewares that handle incoming requests before they reach a target controller |
+| celebrate                            |                                                                                                                                            It's an express middleware function that wraps the joi validation library |
+| cors (Cross-Origin Resource Sharing) | It is a mechanism to allow or restrict requested resources on a web server depend on where the HTTP request was initiated. This policy is used to secure a certain web server from access by other website or domain |
+| dotenv                               |                                                                                                                              automatically loads environment variables from a .env file into the process .env object |
+| express-winston                      |                                                                                                                                    Provides middlewares for request and error logging of your express.js application |
+| winston                              |                                                                                                                                                       Universal logging library with support for multiple transports |
+| validator                            |                                                                                                                                                                        A library of string validators and sanitizers |
+| jsonwebtoken                         |                                                                                                                                   An open standard for securely transferring data within parties using a JSON object |
+| express-rate-limit                   |                                                                                                                                Use to limit repeated requests to public APIs and/or endpoints such as password reset |
+| helmet                               |                                                                                                                                                   Helps you secure your Express apps by setting various HTTP headers |
 
-# Getting Started with Create React App
+- NGINX - An open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## API Endpoints :
 
-## Available Scripts
+| RESTful API Enpoints | HTTP Methods |                  Usage Purpose |
+| -------------------- | :----------: | -----------------------------: |
+| /signup              |     POST     |              User Registration |
+| /signin              |     POST     |                     User Login |
+| /users/me            |     GET      |              GETting user data |
+| /articles            |     GET      | GETting data from all articles |
+| /articles            |     POST     |         Creating a new article |
+| /articles/:\_id      |    DELETE    |    DELETE an article by its id |
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# _👩‍💻👨‍💻 How to Get Started_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Clone**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+$ git clone https://github.com/Chen-Abudi/news-explorer-frontend.git
 
-### `npm test`
+### **Install**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_$ cd news-explorer-frontend_
 
-### `npm run build`
+_$ npm i or npm install_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Launch**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+_$ npm run start_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+# 💎 Deployed Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## _Visit the App_ [&#128073;&#127997; **HERE !**](https://chen23-news-explorer.students.nomoredomainssbs.ru/) (Server IP 35.212.215.168)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ✨ Valuable Links :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- ## [Backend API](https://api.chen23-news-explorer.students.nomoredomainssbs.ru/)
 
-## Learn More
+- ## [Backend Repo](https://github.com/Chen-Abudi/news-explorer-api)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔧 Possible Improvements
 
-### Code Splitting
+- [ ] Create a Forgot Password option in case the users forget theirs.
+- [ ] Resets Password
+- [ ] Customize news outlet filtration according to user preferences.
+- [ ] Customize the sorting of saved articles based on user preferences.
+- [ ] Adjust the application for a dark/night mode.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## **Enjoy ! 🌺👋🏽**

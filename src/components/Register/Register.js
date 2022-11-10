@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import FormValidation from "../../utils/FormValidation";
+import useFormValidation from "../../hooks/useFormValidation";
 
 const Register = ({
   isOpen,
   onClose,
   onRegisterSubmit,
   onSignInClick,
-  name,
+  hasError,
 }) => {
   const { values, handleChange, errors, isValid, handleFormReset } =
-    FormValidation();
+    useFormValidation();
 
   // When form is open, resets it
   useEffect(() => {
@@ -19,7 +19,7 @@ const Register = ({
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onRegisterSubmit();
+    onRegisterSubmit(values.email, values.password, values.name);
   }
 
   return (
@@ -57,13 +57,13 @@ const Register = ({
         <input
           className="popup__input"
           type="password"
-          id={`password-input-${name}`}
+          id={`password-register`}
           autoComplete="on"
           placeholder="Enter password"
           name="password"
           onChange={handleChange}
           value={values.password || ""}
-          minLength="5"
+          minLength="8"
           maxLength="30"
           required
         />
@@ -78,19 +78,27 @@ const Register = ({
         </label>
         <input
           className="popup__input"
-          type="username"
-          id="username-input"
+          type="name"
+          id="username-register"
           autoComplete="on"
           placeholder="Enter username"
-          name="username"
-          value={values.username || ""}
+          name="name"
+          value={values.name || ""}
           onChange={handleChange}
+          minLength="2"
+          maxLength="30"
           required
         />
         <p className="popup__error" id="input-password-error">
-          {errors.username || ""}
+          {errors.name || ""}
         </p>
       </div>
+
+      {hasError && (
+        <p className="popup__error popup__error_type_form">
+          This email is unavailable
+        </p>
+      )}
 
       <button
         className={`popup__submit-button ${

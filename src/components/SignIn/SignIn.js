@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import FormValidation from "../../utils/FormValidation";
+import useFormValidation from "../../hooks/useFormValidation";
 
-const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
+const SignIn = ({
+  isOpen,
+  onClose,
+  onLoginSubmit,
+  onSignUpClick,
+  hasError,
+}) => {
   const { values, handleChange, errors, isValid, handleFormReset } =
-    FormValidation();
+    useFormValidation();
 
   // When form is open, resets it
   useEffect(() => {
@@ -13,7 +19,7 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onLoginSubmit();
+    onLoginSubmit(values.email, values.password);
   }
 
   return (
@@ -43,7 +49,6 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
           {errors.email || ""}
         </p>
       </div>
-
       <div className="popup__input-overlay">
         <label className="popup__input-label" htmlFor="password-input">
           Password
@@ -57,7 +62,7 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
           name="password"
           onChange={handleChange}
           value={values.password || ""}
-          minLength="5"
+          minLength="8"
           maxLength="30"
           required
         />
@@ -65,7 +70,11 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
           {errors.password || ""}
         </p>
       </div>
-
+      {hasError && (
+        <p className="popup__error popup__error_type_form">
+          Incorrect email or password
+        </p>
+      )}
       <button
         className={`popup__submit-button ${
           isValid ? "popup__submit-button_active" : ""

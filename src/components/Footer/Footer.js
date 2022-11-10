@@ -18,7 +18,7 @@ const Footer = () => {
             </NavLink>
             <a
               className="footer__link"
-              href="https://practicum.com/"
+              href="https://practicum.com/en-isr/"
               target="_blank"
               rel="noreferrer"
             >
