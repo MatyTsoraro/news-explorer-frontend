@@ -17,7 +17,8 @@ const About = () => {
           <p className="about__description">
             The soon to be alumni of Practicum Software Engineer program, has a
             competence for creating elegant solutions efficiently with the
-            ability of solving problems with logic, art, and technology.
+            ability of solving problems with logic, art, and technology. Feel
+            Free to reach out through Social Media down below ➘
           </p>
         </div>
       </div>

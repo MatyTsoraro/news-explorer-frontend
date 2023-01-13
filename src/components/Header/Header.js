@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import MobileNavigationOverlay from "../MobileNavigationOverlay/MobileNavigationOverlay";
 
-import MenuHamburgerWhiteIcon from "../../images/menu-white_icon.svg";
-import MenuHamburgerBlackIcon from "../../images/menu-black_icon.svg";
-import MenuCloseIcon from "../../images/menu-close_icon.svg";
-import MenuLogoutWhiteIcon from "../../images/menu-logout-white_icon.svg";
-import MenuLogoutBlackIcon from "../../images/menu-logout-black_icon.svg";
+import MenuHamburgerWhiteIcon from "../../images/icons/menu-white_icon.svg";
+import MenuHamburgerBlackIcon from "../../images/icons/menu-black_icon.svg";
+import MenuCloseIcon from "../../images/icons/menu-close_icon.svg";
+import MenuLogoutWhiteIcon from "../../images/icons/menu-logout-white_icon.svg";
+import MenuLogoutBlackIcon from "../../images/icons/menu-logout-black_icon.svg";
 
 const Header = ({
   loggedIn,

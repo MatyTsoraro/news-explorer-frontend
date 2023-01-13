@@ -1,7 +1,7 @@
 .news-card {
   max-width: 400px;
   border-radius: 10px;
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
   position: relative;
   background-color: #ffffff;
   height: 576px;
@@ -80,7 +80,7 @@
   background: #ffffff;
   border-radius: 10px;
   position: absolute;
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
   width: 40px;
   height: 40px;
   top: 24px;
@@ -90,25 +90,25 @@
 }
 
 .news-card__button_save {
-  background-image: url("../../images/save-icon_default.svg");
+  background-image: url("../../images/icons/save-icon_default.svg");
 }
 
 .news-card__button_save:hover {
-  background-image: url("../../images/save-icon_hover.svg");
+  background-image: url("../../images/icons/save-icon_hover.svg");
 }
 
 .news-card__button_save_active,
 .news-card__button_save_active:hover {
-  background-image: url("../../images/save-icon_marked.svg");
+  background-image: url("../../images/icons/save-icon_marked.svg");
 }
 
 .news-card__button_remove {
-  background-image: url("../../images/trash_icon.svg");
+  background-image: url("../../images/icons/trash_icon.svg");
   transition: background-image 0.2s ease;
 }
 
 .news-card__button_remove:hover {
-  background-image: url("../../images/trash-hover_icon.svg");
+  background-image: url("../../images/icons/trash-hover_icon.svg");
 }
 
 .news-card__tag {

@@ -59,7 +59,7 @@
 }
 
 .news-card-list__show-more-button:hover {
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
   background-color: #e8e8e8;
 }
 

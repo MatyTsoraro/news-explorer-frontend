@@ -35,12 +35,12 @@
   position: relative;
   left: 420px;
   top: 5px;
-  background-image: url(../../images/close-icon.svg);
+  background-image: url(../../images/icons/close-icon.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;
   transition: opacity 0.4s ease;
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
 }
 
 .popup__close-button:hover {
@@ -112,7 +112,7 @@
   transition: opacity 0.4s ease;
   outline: none;
   border: none;
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
   background-color: #e6e8eb;
   color: #b6bcbf;
 }
@@ -157,7 +157,7 @@
 .popup__signin-link {
   font-family: "Inter", sans-serif;
   color: #2f71e5;
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
 }
 
 @media screen and (max-width: 500px) {

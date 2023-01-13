@@ -89,6 +89,48 @@ _$ npm run start_
 
 ---
 
+## 📸 Project Features :
+
+- Homepage for users before sign up/sign in
+  ![](../news-explorer-frontend/src/images/unlogged-homepage.png)
+
+- Homepage for user who's logged in
+  ![](../news-explorer-frontend/src/images/logged-in-homepage.png)
+
+- Sign up
+  ![](../news-explorer-frontend/src/images/sign-up-form.png)
+
+- Sign in/Logged in
+  ![](../news-explorer-frontend/src/images/sign-in-form.png)
+
+- Form Validation
+  ![](../news-explorer-frontend/src/images/form-validation.png)
+
+- Search results for articles
+  ![](../news-explorer-frontend/src/images/search-results.png)
+
+- Articles
+
+  - Marked icon which means the article got saved to profile
+    ![](../news-explorer-frontend/src/images/marked-icon-saved-article.png)
+
+  - Remove article from the saved ones
+    ![](../news-explorer-frontend/src/images/remove-saved-article.png)
+
+  - When users aren't logged in and wants to save an article, they will need to sign in first
+    ![](../news-explorer-frontend/src/images/sign-in-to-save-article.png)
+
+- When there's no match for searching terms, not found results will be shown
+  ![](../news-explorer-frontend/src/images/nothing-found-results.png)
+
+- The saved articles page in users account/profile
+  ![](../news-explorer-frontend/src/images/saved-news-page.png)
+
+- Info about the author section
+  ![](../news-explorer-frontend/src/images/about-author.png)
+
+---
+
 ## 🔧 Possible Improvements
 
 - [ ] Create a Forgot Password option in case the users forget theirs.

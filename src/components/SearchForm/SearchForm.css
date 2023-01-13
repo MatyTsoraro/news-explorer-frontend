@@ -90,7 +90,7 @@
 
 .search-form__button:hover {
   background-color: #347eff;
-  cursor: url("../../images/pointer_icon.svg"), pointer;
+  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
 }
 
 .search-form__button:active {

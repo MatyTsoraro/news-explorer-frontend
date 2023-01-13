@@ -77,7 +77,7 @@ function App() {
     if (token) {
       setLoggedIn(true);
     }
-  }, []);
+  }, [token]);
 
   // Determines if user is on the saved-articles page
   useEffect(() => {

@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
-import FacebookIcon from "../../images/facebook-icon.svg";
-import GithubIcon from "../../images/github-icon.svg";
+import LinkedInIcon from "../../images/icons/linkedin-icon.svg";
+import InstagramIcon from "../../images/icons/instagram-icon.svg";
+import GithubIcon from "../../images/icons/github-icon.svg";
 
 const Footer = () => {
   return (
@@ -38,14 +39,26 @@ const Footer = () => {
               />
             </a>
             <a
-              href="https://www.facebook.com/"
+              href="https://www.linkedin.com/in/chen-abudi/"
               target="_blank"
               rel="noreferrer"
             >
               <img
-                className="footer__icon footer__icon_type_facebook"
-                src={FacebookIcon}
-                alt="Facebook Icon"
+                className="footer__icon footer__icon_type_linkedin"
+                src={LinkedInIcon}
+                alt="LinkedIn Icon"
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/calibased23/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                className="footer__icon footer__icon_type_instagram"
+                src={InstagramIcon}
+                alt="Instagram Icon"
               />
             </a>
           </div>
