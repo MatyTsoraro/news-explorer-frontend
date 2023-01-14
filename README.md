@@ -91,42 +91,54 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 
 ## 📸 Project Features :
 
-- Homepage for users before sign up/sign in
+- **_Homepage for users before sign up/sign in_**
+
   ![](./src/images/unlogged-homepage.png)
 
-- Homepage for user who's logged in
+- **_Homepage for user who's logged in_**
+
   ![](./src/images/logged-in-homepage.png)
 
-- Sign up
+- **_Sign up_**
+
   ![](./src/images/sign-up-form.png)
 
-- Sign in/Logged in
+- **_Sign in/Logged in_**
+
   ![](./src/images/sign-in-form.png)
 
-- Form Validation
+- **_Form Validation_**
+
   ![](./src/images/form-validation.png)
 
-- Search results for articles
+- **_Search results for articles_**
+
   ![](./src/images/search-results.png)
 
-- Articles
+- **Articles**
 
-  - Marked icon which means the article got saved to profile
+  - **_Marked icon which means the article got saved to profile_**
+
     ![](./src/images/marked-icon-saved-article.png)
 
-  - Remove article from the saved ones
+  - **_Remove article from the saved ones_**
+
     ![](./src/images/remove-saved-article.png)
 
-  - When users aren't logged in and wants to save an article, they will need to sign in first
+  - **_When users aren't logged in and wants to save an article, they will need to sign in first_**
+
     ![](./src/images/sign-in-to-save-article.png)
 
-- When there's no match for searching terms, not found results will be shown
+- **_When there's no match for searching terms, not found results will be shown_**
+
   ![](./src/images/nothing-found-results.png)
 
-- The saved articles page in users account/profile
+- **_The saved articles page in users account/profile_**
+
   ![](./src/images/saved-news-page.png)
 
-- Info about the author section
+- **_Info about the author section_**
+
   ![](./src/images/about-author.png)
 
 ---
