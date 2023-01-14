@@ -103,7 +103,7 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 
   ![](./src/images/sign-up-form.png)
 
-- **_Sign in/Logged in_**
+- **_Sign in/Log in_**
 
   ![](./src/images/sign-in-form.png)
 
