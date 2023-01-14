@@ -61,23 +61,23 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 
 ### **Clone**
 
-$ git clone https://github.com/Chen-Abudi/news-explorer-frontend.git
+`$ git clone https://github.com/Chen-Abudi/news-explorer-frontend.git`
 
 ### **Install**
 
-_$ cd news-explorer-frontend_
+`$ cd news-explorer-frontend`
 
-_$ npm i or npm install_
+`$ npm i or npm install`
 
 ### **Launch**
 
-_$ npm run start_
+`$ npm run start`
 
 ---
 
 # 💎 Deployed Application
 
-## _Visit the App_ [&#128073;&#127997; **HERE !**](https://chen23-news-explorer.students.nomoredomainssbs.ru/) (Server IP 35.212.215.168)
+## _Visit the App_ [&#128073;&#127997; **HERE !**](https://chen23-news-explorer.students.nomoredomainssbs.ru/)
 
 ---
 
@@ -92,42 +92,42 @@ _$ npm run start_
 ## 📸 Project Features :
 
 - Homepage for users before sign up/sign in
-  ![](../news-explorer-frontend/src/images/unlogged-homepage.png)
+  ![](./src/images/unlogged-homepage.png)
 
 - Homepage for user who's logged in
-  ![](../news-explorer-frontend/src/images/logged-in-homepage.png)
+  ![](./src/images/logged-in-homepage.png)
 
 - Sign up
-  ![](../news-explorer-frontend/src/images/sign-up-form.png)
+  ![](./src/images/sign-up-form.png)
 
 - Sign in/Logged in
-  ![](../news-explorer-frontend/src/images/sign-in-form.png)
+  ![](./src/images/sign-in-form.png)
 
 - Form Validation
-  ![](../news-explorer-frontend/src/images/form-validation.png)
+  ![](./src/images/form-validation.png)
 
 - Search results for articles
-  ![](../news-explorer-frontend/src/images/search-results.png)
+  ![](./src/images/search-results.png)
 
 - Articles
 
   - Marked icon which means the article got saved to profile
-    ![](../news-explorer-frontend/src/images/marked-icon-saved-article.png)
+    ![](./src/images/marked-icon-saved-article.png)
 
   - Remove article from the saved ones
-    ![](../news-explorer-frontend/src/images/remove-saved-article.png)
+    ![](./src/images/remove-saved-article.png)
 
   - When users aren't logged in and wants to save an article, they will need to sign in first
-    ![](../news-explorer-frontend/src/images/sign-in-to-save-article.png)
+    ![](./src/images/sign-in-to-save-article.png)
 
 - When there's no match for searching terms, not found results will be shown
-  ![](../news-explorer-frontend/src/images/nothing-found-results.png)
+  ![](./src/images/nothing-found-results.png)
 
 - The saved articles page in users account/profile
-  ![](../news-explorer-frontend/src/images/saved-news-page.png)
+  ![](./src/images/saved-news-page.png)
 
 - Info about the author section
-  ![](../news-explorer-frontend/src/images/about-author.png)
+  ![](./src/images/about-author.png)
 
 ---
 
