@@ -26,7 +26,10 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 - Responsive Layout
 - JWT server Auth
 - newsapi.org - provides articles news
-- Deployed to _GCP_ (Google Cloud Platform)
+- Deployed to _`Vercel`_
+- CI/CD
+- `Vercel Serverless technology`
+- Git/GitHub
 
 | NPM Packages (Backend)               |                                                                                                                                                                                                       Aspects of Use |
 | :----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -42,9 +45,7 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 | express-rate-limit                   |                                                                                                                                Use to limit repeated requests to public APIs and/or endpoints such as password reset |
 | helmet                               |                                                                                                                                                   Helps you secure your Express apps by setting various HTTP headers |
 
-- NGINX - An open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more.
-
-## API Endpoints :
+## 📍 API Endpoints :
 
 | RESTful API Enpoints | HTTP Methods |                  Usage Purpose |
 | -------------------- | :----------: | -----------------------------: |
@@ -75,17 +76,19 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 
 ---
 
-# 💎 Deployed Application
+# ✨ Deployed Application
 
-## _Visit the App_ [&#128073;&#127997; **HERE !**](https://chen23-news-explorer.students.nomoredomainssbs.ru/)
+## _Visit the App_ [&#128073;&#127997; **HERE !**](https://news-explorer-frontend-alpha.vercel.app/)
 
 ---
 
-## ✨ Valuable Links :
+## 💎 Valuable Links :
 
-- ## [Backend API](https://api.chen23-news-explorer.students.nomoredomainssbs.ru/)
+- ## [Backend API](https://news-explorer-api-mu.vercel.app/)
 
 - ## [Backend Repo](https://github.com/Chen-Abudi/news-explorer-api)
+
+## **Enjoy ! 🌺👋🏽**
 
 ---
 
@@ -152,5 +155,3 @@ This is the Frontend of a News Explorer Service App, where users can search for 
 - [ ] Adjust the application for a dark/night mode.
 
 ---
-
-## **Enjoy ! 🌺👋🏽**
