@@ -3,8 +3,7 @@ const PROXY_URL = "https://nomoreparties.co/news/v2/everything";
 const NUMBER_CARDS = 3;
 const NUMBER_ARTICLES = 100;
 
-const BASE_URL =
-  "https://api.chen23-news-explorer.students.nomoredomainssbs.ru";
+const BASE_URL = "https://news-explorer-frontend-alpha.vercel.app/";
 
 module.exports = {
   API_KEY,
