@@ -11,26 +11,24 @@
 }
 
 .navigation .overlap-group {
-    border: 1px solid;
-    border-color: #ffffff;
-    border-radius: 100px;
     height: 48px;
+    width: 176px;
+    border: 1px solid #ffffff;
+    border-radius: 100px;
     left: 1160px;
     position: absolute;
     top: 19px;
-    width: 176px;
 }
 
-.navigation .text-wrapper {
-    color: var(--mainwhite);
-    font-family: var(--button-font-family);
-    font-size: var(--button-font-size);
-    font-style: var(--button-font-style);
-    font-weight: var(--button-font-weight);
+.navigation .text-signin {
+    color: #ffffff;
+    font-family: "Roboto-Medium", Helvetica;
+    font-size: 18px;
+    font-weight: 500;
     height: 24px;
     left: 11px;
-    letter-spacing: var(--button-letter-spacing);
-    line-height: var(--button-line-height);
+    letter-spacing: 0;
+    line-height: 24px;
     position: absolute;
     text-align: center;
     top: 10px;
@@ -38,8 +36,8 @@
     width: 152px;
 }
 
-.navigation .div {
-    color: var(--mainwhite);
+.navigation .text-home {
+    color: #ffffff;
     font-family: "Roboto-Medium", Helvetica;
     font-size: 18px;
     font-weight: 500;
@@ -72,25 +70,5 @@
     line-height: 24px;
     position: absolute;
     top: 29px;
-    width: 200px;
-}
-
-.label {
-    border: 0px none;
-    height: 24px;
-    width: 200px;
-}
-
-.label .text-wrapper-2 {
-    color: #ffffff;
-    font-family: "Roboto Slab-Bold", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    height: 24px;
-    left: 0;
-    letter-spacing: 0;
-    line-height: 24px;
-    position: fixed;
-    top: 0;
     width: 200px;
 }
