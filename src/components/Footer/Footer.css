@@ -1,0 +1,81 @@
+/* Default styles for desktop */
+.footer {
+    background-color: #ffffff;
+    border: 1px none;
+}
+.footer .element-supersite {
+    color: var(--simulatorgraytext);
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 104px;
+    letter-spacing: 0;
+    line-height: 22px;
+    position: absolute;
+    top: 31px;
+    white-space: nowrap;
+    width: 433px;
+}
+/* Your other desktop styles here... */
+
+/* Styles for tablet */
+@media only screen and (max-width: 1024px) {
+    .footer {
+        background-color: #ffffff;
+        border: 1px none;
+    }
+    .footer .element-supersite {
+        left: 40px;
+        width: 300px;
+    }
+    /* Add the remaining tablet-specific styles, changing classes like .tablet-footer to .footer */
+    .footer .group {
+        height: 24px;
+        left: 445px;
+        position: absolute;
+        top: 21px;
+        width: 175px;
+    }
+    /* ... */
+}
+
+/* Styles for mobile */
+@media only screen and (max-width: 768px) {
+    .footer {
+        background-color: #ffffff;
+        border: 1px none;
+    }
+    .footer .element-supersite {
+        left: 16px;
+        width: 288px;
+    }
+    /* Add the remaining mobile-specific styles, changing classes like .mobile-futer to .footer */
+    .footer .home-practicum-by {
+        color: var(--mainprimary);
+        font-family: "Roboto-Regular", Helvetica;
+        font-size: 18px;
+        font-weight: 400;
+        left: 16px;
+        letter-spacing: 0;
+        line-height: 48px;
+        position: absolute;
+        top: 19px;
+        width: 200px;
+    }
+    /* ... */
+}
+
+/* Additional styles */
+.footer .group {
+    height: 24px;
+    left: 1053px;
+    position: absolute;
+    top: 30px;
+    width: 171px;
+}
+.footer .div {
+    height: 24px;
+    position: relative;
+    width: 175px;
+}
+/* Add all the remaining styles for other classes here */
