@@ -1,81 +1,109 @@
-/* Default styles for desktop */
 .footer {
-    background-color: #ffffff;
-    border: 1px none;
-}
-.footer .element-supersite {
-    color: var(--simulatorgraytext);
-    font-family: "Roboto-Regular", Helvetica;
-    font-size: 16px;
-    font-weight: 400;
-    left: 104px;
-    letter-spacing: 0;
-    line-height: 22px;
-    position: absolute;
-    top: 31px;
-    white-space: nowrap;
-    width: 433px;
-}
-/* Your other desktop styles here... */
-
-/* Styles for tablet */
-@media only screen and (max-width: 1024px) {
-    .footer {
-        background-color: #ffffff;
-        border: 1px none;
-    }
-    .footer .element-supersite {
-        left: 40px;
-        width: 300px;
-    }
-    /* Add the remaining tablet-specific styles, changing classes like .tablet-footer to .footer */
-    .footer .group {
-        height: 24px;
-        left: 445px;
-        position: absolute;
-        top: 21px;
-        width: 175px;
-    }
-    /* ... */
+  font-family: "Roboto", sans-serif;
+  padding: 32px 104px 26px 104px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-/* Styles for mobile */
-@media only screen and (max-width: 768px) {
-    .footer {
-        background-color: #ffffff;
-        border: 1px none;
-    }
-    .footer .element-supersite {
-        left: 16px;
-        width: 288px;
-    }
-    /* Add the remaining mobile-specific styles, changing classes like .mobile-futer to .footer */
-    .footer .home-practicum-by {
-        color: var(--mainprimary);
-        font-family: "Roboto-Regular", Helvetica;
-        font-size: 18px;
-        font-weight: 400;
-        left: 16px;
-        letter-spacing: 0;
-        line-height: 48px;
-        position: absolute;
-        top: 19px;
-        width: 200px;
-    }
-    /* ... */
+.footer__content {
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Additional styles */
-.footer .group {
-    height: 24px;
-    left: 1053px;
-    position: absolute;
-    top: 30px;
-    width: 171px;
+.footer__copyright {
+  font-size: 16px;
+  line-height: 22px;
+  color: #b6bcbf;
+  margin: 0;
 }
-.footer .div {
-    height: 24px;
-    position: relative;
-    width: 175px;
+
+.footer__navigation {
+  display: flex;
 }
-/* Add all the remaining styles for other classes here */
+
+.footer__links {
+  display: flex;
+}
+
+.footer__link {
+  color: #1a1b22;
+  font-size: 18px;
+  line-height: 24px;
+  margin-left: 40px;
+  align-self: center;
+  text-decoration: none;
+  cursor: url("../../images/pointer_icon.svg"), pointer;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.6;
+}
+
+.footer__social {
+  display: flex;
+}
+
+.footer__icon {
+  cursor: url("../../images/pointer_icon.svg"), pointer;
+  transition: opacity 0.3s ease;
+}
+
+.footer__icon:hover {
+  opacity: 0.6;
+}
+
+.footer__icon_type_github {
+  margin-left: 40px;
+}
+
+.footer__icon_type_facebook {
+  margin-left: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .footer__link {
+    margin-left: 24px;
+  }
+
+  .footer__icon_type_github {
+    margin-left: 24px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .footer__content {
+    flex-direction: column-reverse;
+  }
+
+  .footer__navigation {
+    justify-content: space-between;
+  }
+
+  .footer__links {
+    flex-direction: column;
+  }
+
+  .footer__link {
+    align-self: auto;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  .footer__social {
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
