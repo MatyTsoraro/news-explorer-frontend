@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, useNavigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ children, loggedIn, ...props }) => {
+const ProtectedRoute = ({ children, loggedIn }) => {
   const navigate = useNavigate();
 
   if (!loggedIn) {
@@ -9,11 +9,8 @@ const ProtectedRoute = ({ children, loggedIn, ...props }) => {
     return null;
   }
 
-  return (
-      <Route {...props}>
-        {children}
-      </Route>
-  );
+  return children;
 };
+
 
 export default ProtectedRoute;

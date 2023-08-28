@@ -8,7 +8,7 @@ const SavedNewsHeader = () => {
       <div className="saved-news__content">
         <p className="saved-news__title">Saved articles</p>
         <h1 className="saved-news__heading">
-          Chen, you have {savedArticles.length} saved articles
+          Maty, you have {savedArticles.length} saved articles
         </h1>
         <p className="saved-news__keywords">
           By keywords:{" "}
