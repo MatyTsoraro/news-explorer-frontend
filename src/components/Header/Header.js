@@ -10,13 +10,14 @@ import MenuLogoutWhiteIcon from "../../images/menu-logout-white_icon.svg";
 import MenuLogoutBlackIcon from "../../images/menu-logout-black_icon.svg";
 
 const Header = ({
-  loggedIn,
-  setLoggedIn,
-  onSignInClick,
-  setIsNewsCardListOpen,
-  setSearchKeyword,
-  onSavedArticlesPage,
-}) => {
+                  loggedIn,
+                  currentUser,
+                  onSignInClick,
+                  setIsNewsCardListOpen,
+                  setSearchKeyword,
+                  onSavedArticlesPage,
+                  onLogOut,
+                }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileWidth, setMobileWidth] = useState(false);
   const [hamburgerShow, setHamburgerShow] = useState();
@@ -34,7 +35,6 @@ const Header = ({
         setMobileWidth(false);
       }
     }
-
     checkWidth();
     window.addEventListener("resize", checkWidth);
     return () => window.removeEventListener("resize", checkWidth);
@@ -66,7 +66,6 @@ const Header = ({
   });
 
   function handleCloseFromOverlay(evt) {
-    // console.log(evt.target);
     if (overlayRef.current && !overlayRef.current.contains(evt.target)) {
       setIsMenuOpen(false);
     }
@@ -99,136 +98,136 @@ const Header = ({
 
   function logOut() {
     handleNavigationClick();
-    setLoggedIn(false);
+    onLogOut();
   }
 
   return loggedIn ? (
-    <header
-      className={`header ${
-        isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
-      }`}
-      ref={overlayRef}
-    >
-      <NavLink
-        className={`header__logo ${
-          onSavedArticlesPage && "header__logo_saved-articles"
-        } ${isMenuOpen && "header__logo_menu_open"}`}
-        exact
-        to="/"
-        onClick={handleNavigationClick}
+      <header
+          className={`header ${
+              isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
+          }`}
+          ref={overlayRef}
       >
-        NewsExplorer
-      </NavLink>
-      <img
-        className="header__menu-icon"
-        alt="Menu Icon"
-        src={hamburgerShow}
-        onClick={onHamburgerClick}
-      />
-      <nav
-        className={`header__navigation ${
-          mobileWidth && isMenuOpen
-            ? "header__navigation_type_mobile_active-logged-in"
-            : "header__navigation_type_mobile_inactive"
-        }`}
-      >
-        <MobileNavigationOverlay mobileWidth={mobileWidth}>
-          <NavLink
-            className={`header__link-homepage ${
-              onSavedArticlesPage && "header_color_black"
-            }`}
-            activeClassName={
-              onSavedArticlesPage
-                ? "header__active_color_black"
-                : "header__active_color_white"
-            }
+        <NavLink
+            className={`header__logo ${
+                onSavedArticlesPage && "header__logo_saved-articles"
+            } ${isMenuOpen && "header__logo_menu_open"}`}
             exact
             to="/"
             onClick={handleNavigationClick}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className={`header__link-saved-articles ${
-              onSavedArticlesPage && "header_color_black"
+        >
+          NewsExplorer
+        </NavLink>
+        <img
+            className="header__menu-icon"
+            alt="Menu Icon"
+            src={hamburgerShow}
+            onClick={onHamburgerClick}
+        />
+        <nav
+            className={`header__navigation ${
+                mobileWidth && isMenuOpen
+                    ? "header__navigation_type_mobile_active-logged-in"
+                    : "header__navigation_type_mobile_inactive"
             }`}
-            activeClassName={
-              onSavedArticlesPage
-                ? "header__active_color_black"
-                : "header__active_color_white"
-            }
-            to="/saved-articles"
-            onClick={handleNavigationClick}
-          >
-            Saved articles
-          </NavLink>
-          <NavLink
-            className={`header__log-button header__signout-button header__log-button_logged-in ${
-              onSavedArticlesPage && "header__log-button_saved-articles"
-            }`}
-            to=""
-            onClick={logOut}
-          >
-            <p className="header__log-button-username">Maty</p>
-            <img
-              className="header__log-button-logout-icon"
-              src={logoutShowIcon}
-              alt="Logout Icon"
-            />
-          </NavLink>
-        </MobileNavigationOverlay>
-      </nav>
-    </header>
+        >
+          <MobileNavigationOverlay mobileWidth={mobileWidth}>
+            <NavLink
+                className={`header__link-homepage ${
+                    onSavedArticlesPage && "header_color_black"
+                }`}
+                activeClassName={
+                  onSavedArticlesPage
+                      ? "header__active_color_black"
+                      : "header__active_color_white"
+                }
+                exact
+                to="/"
+                onClick={handleNavigationClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+                className={`header__link-saved-articles ${
+                    onSavedArticlesPage && "header_color_black"
+                }`}
+                activeClassName={
+                  onSavedArticlesPage
+                      ? "header__active_color_black"
+                      : "header__active_color_white"
+                }
+                to="/saved-articles"
+                onClick={handleNavigationClick}
+            >
+              Saved articles
+            </NavLink>
+            <NavLink
+                className={`header__log-button header__signout-button header__log-button_logged-in ${
+                    onSavedArticlesPage && "header__log-button_saved-articles"
+                }`}
+                to=""
+                onClick={logOut}
+            >
+              <p className="header__log-button-username">{currentUser?.name}</p>
+              <img
+                  className="header__log-button-logout-icon"
+                  src={logoutShowIcon}
+                  alt="Logout Icon"
+              />
+            </NavLink>
+          </MobileNavigationOverlay>
+        </nav>
+      </header>
   ) : (
-    <header
-      className={`header ${
-        isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
-      }`}
-      ref={overlayRef}
-    >
-      <NavLink
-        className="header__logo"
-        exact
-        to="/"
-        onClick={handleNavigationClick}
+      <header
+          className={`header ${
+              isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
+          }`}
+          ref={overlayRef}
       >
-        NewsExplorer
-      </NavLink>
-      <img
-        className="header__menu-icon"
-        alt="menu icon"
-        src={hamburgerShow}
-        onClick={onHamburgerClick}
-      />
-      <div
-        className={`header__navigation ${
-          mobileWidth && isMenuOpen
-            ? "header__navigation_type_mobile_active-logged-out"
-            : "header__navigation_type_mobile_inactive"
-        }`}
-      >
-        <MobileNavigationOverlay mobileWidth={mobileWidth}>
-          <NavLink
-            className="header__link-homepage"
-            activeClassName="header__active_color_white"
+        <NavLink
+            className="header__logo"
             exact
             to="/"
             onClick={handleNavigationClick}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className={
-              "header__log-button header__signin-button header__log-button_logged-out"
-            }
-            to=""
-            onClick={handleLogButtonClick}
-          >
-            Sign In
-          </NavLink>
-        </MobileNavigationOverlay>
-      </div>
-    </header>
+        >
+          NewsExplorer
+        </NavLink>
+        <img
+            className="header__menu-icon"
+            alt="Menu icon"
+            src={hamburgerShow}
+            onClick={onHamburgerClick}
+        />
+        <div
+            className={`header__navigation ${
+                mobileWidth && isMenuOpen
+                    ? ".header__navigation_mobile_active_logged-out"
+                    : "header__navigation_mobile_inactive"
+            }`}
+        >
+          <MobileNavigationOverlay mobileWidth={mobileWidth}>
+            <NavLink
+                className="header__link-homepage"
+                activeClassName="header__active_color_white"
+                exact
+                to="/"
+                onClick={handleNavigationClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+                className={
+                  "header__log-button header__signin-button header__log-button_logged-out"
+                }
+                to=""
+                onClick={handleLogButtonClick}
+            >
+              Sign In
+            </NavLink>
+          </MobileNavigationOverlay>
+        </div>
+      </header>
   );
 };
 

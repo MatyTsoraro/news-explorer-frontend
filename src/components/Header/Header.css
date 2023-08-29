@@ -63,6 +63,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+
+  padding: 12px;
 }
 
 .header__log-button_logged-in {
@@ -72,7 +74,8 @@
 
 .header__log-button_logged-out {
   width: 176px;
-  margin: auto 0 auto 16px;
+  margin: auto 0 auto 32px;
+  /* margin: auto 0 auto 16px; */
 }
 
 .header__logo:hover,
@@ -88,6 +91,7 @@
 
 .header__log-button-logout-icon {
   height: 24px;
+  width: 24px;
   margin-left: 15px;
 }
 
@@ -220,7 +224,7 @@
     overflow: hidden;
   }
 
-  .header__navigation_type_mobile_active-logged-out {
+  .header__navigation_mobile_active_logged-out{
     transition: max-height 1s ease, min-height 1s ease;
     max-height: 174px;
     min-height: 174px;
@@ -232,7 +236,7 @@
     min-height: 230px;
   }
 
-  .header__navigation_type_mobile_inactive {
+  .header__navigation_mobile_inactive {
     transition: max-height 0.7s ease;
     max-height: 0;
   }
