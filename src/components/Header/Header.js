@@ -127,8 +127,8 @@ const Header = ({
         <nav
             className={`header__navigation ${
                 mobileWidth && isMenuOpen
-                    ? "header__navigation_type_mobile_active-logged-in"
-                    : "header__navigation_type_mobile_inactive"
+                    ? "header__navigation--type-mobile-active-logged-in"
+                    : "header__navigation--type-mobile-inactive"
             }`}
         >
           <MobileNavigationOverlay mobileWidth={mobileWidth}>
@@ -136,11 +136,7 @@ const Header = ({
                 className={`header__link-homepage ${
                     onSavedArticlesPage && "header_color_black"
                 }`}
-                activeClassName={
-                  onSavedArticlesPage
-                      ? "header__active_color_black"
-                      : "header__active_color_white"
-                }
+                activeClassName="active"
                 exact
                 to="/"
                 onClick={handleNavigationClick}
@@ -148,14 +144,10 @@ const Header = ({
               Home
             </NavLink>
             <NavLink
-                className={`header__link-saved-articles ${
+                className={`header__link-saved-articles header__active_color_white ${
                     onSavedArticlesPage && "header_color_black"
                 }`}
-                activeClassName={
-                  onSavedArticlesPage
-                      ? "header__active_color_black"
-                      : "header__active_color_white"
-                }
+                activeClassName="active"
                 to="/saved-articles"
                 onClick={handleNavigationClick}
             >
@@ -168,7 +160,9 @@ const Header = ({
                 to=""
                 onClick={logOut}
             >
-              <p className="header__log-button-username">{currentUser?.name}</p>
+              <p className="header__log-button-username">
+                {currentUser?.name}
+              </p>
               <img
                   className="header__log-button-logout-icon"
                   src={logoutShowIcon}
@@ -202,13 +196,13 @@ const Header = ({
         <div
             className={`header__navigation ${
                 mobileWidth && isMenuOpen
-                    ? ".header__navigation_mobile_active_logged-out"
-                    : "header__navigation_mobile_inactive"
+                    ? "header__navigation--type-mobile-active-logged-out"
+                    : "header__navigation--type-mobile-inactive"
             }`}
         >
           <MobileNavigationOverlay mobileWidth={mobileWidth}>
             <NavLink
-                className="header__link-homepage"
+                className="header__link-homepage header__active_color_white "
                 activeClassName="header__active_color_white"
                 exact
                 to="/"

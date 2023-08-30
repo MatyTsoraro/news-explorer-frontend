@@ -63,7 +63,6 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-
   padding: 12px;
 }
 
@@ -75,7 +74,6 @@
 .header__log-button_logged-out {
   width: 176px;
   margin: auto 0 auto 32px;
-  /* margin: auto 0 auto 16px; */
 }
 
 .header__logo:hover,
@@ -224,7 +222,7 @@
     overflow: hidden;
   }
 
-  .header__navigation_mobile_active_logged-out{
+  .header__navigation--type-mobile-active-logged-out{
     transition: max-height 1s ease, min-height 1s ease;
     max-height: 174px;
     min-height: 174px;
@@ -236,7 +234,7 @@
     min-height: 230px;
   }
 
-  .header__navigation_mobile_inactive {
+  .header__navigation--type-mobile-inactive {
     transition: max-height 0.7s ease;
     max-height: 0;
   }
@@ -263,7 +261,8 @@
   }
 
   .header__active_color_white {
-    box-shadow: none;
+    box-shadow: inset 0 -3px 0 0 #fff;
+    color: #fff;
   }
 
   .header__active_color_black {
