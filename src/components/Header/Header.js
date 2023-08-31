@@ -127,8 +127,8 @@ const Header = ({
         <nav
             className={`header__navigation ${
                 mobileWidth && isMenuOpen
-                    ? "header__navigation_type_mobile_active-logged-in"
-                    : "header__navigation_type_mobile_inactive"
+                    ? "header__navigation--type-mobile-active-logged-in"
+                    : "header__navigation--type-mobile-inactive"
             }`}
         >
           <MobileNavigationOverlay mobileWidth={mobileWidth}>
@@ -149,18 +149,16 @@ const Header = ({
             </NavLink>
             <NavLink
                 className={`header__link-saved-articles ${
-                    onSavedArticlesPage && "header_color_black"
+                    onSavedArticlesPage ? "header_color_black header__active_color_black" : ""
                 }`}
-                activeClassName={
-                  onSavedArticlesPage
-                      ? "header__active_color_black"
-                      : "header__active_color_white"
-                }
+                activeClassName="header__active_color_black"
                 to="/saved-articles"
                 onClick={handleNavigationClick}
             >
               Saved articles
             </NavLink>
+
+
             <NavLink
                 className={`header__log-button header__signout-button header__log-button_logged-in ${
                     onSavedArticlesPage && "header__log-button_saved-articles"
@@ -202,13 +200,13 @@ const Header = ({
         <div
             className={`header__navigation ${
                 mobileWidth && isMenuOpen
-                    ? ".header__navigation_mobile_active_logged-out"
-                    : "header__navigation_mobile_inactive"
+                    ? "header__navigation--mobile-active-logged-out"
+                    : "header__navigation--mobile-inactive"
             }`}
         >
           <MobileNavigationOverlay mobileWidth={mobileWidth}>
             <NavLink
-                className="header__link-homepage"
+                className="header__link-homepage header__active_color_white"
                 activeClassName="header__active_color_white"
                 exact
                 to="/"

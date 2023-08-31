@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import FormValidation from "../../utils/FormValidation";
+import "./SignIn.css";
 
 const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
   const { values, handleChange, errors, isValid, handleFormReset } =
@@ -78,9 +79,10 @@ const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
       </button>
       <p className="popup__signin-register">
         or{" "}
-        <span className="popup__link" onClick={onSignUpClick}>
+        <button className="popup__link" onClick={onSignUpClick}>
           Sign up
-        </span>
+        </button>
+
       </p>
     </PopupWithForm>
   );

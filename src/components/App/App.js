@@ -81,7 +81,7 @@ function App() {
   }
 
   return (
-      <div className="App">
+      <div className="app">
         <Header
             loggedIn={loggedIn}
             setLoggedIn={setLoggedIn}
