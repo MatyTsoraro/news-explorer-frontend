@@ -99,19 +99,17 @@
   color: #ffffff;
 }
 
+.header_color_black {
+  color: #000;
+}
+
 .header__active_color_white {
   color: #ffffff;
   box-shadow: inset 0 -3px 0 0 #ffffff;
 }
 
-
-.header_color_black {
-  color: #000;
-}
-
-
 .header__active_color_black {
-  box-shadow: inset 0 -3px 0 0 #1a1b22;
+  box-shadow: inset 0 -3px 0 0 #000;
 }
 
 .header__logo_saved-articles {
@@ -226,19 +224,19 @@
     overflow: hidden;
   }
 
-  .header__navigation--mobile-active-logged-out{
+  .header__navigation_mobile_active_logged-out{
     transition: max-height 1s ease, min-height 1s ease;
     max-height: 174px;
     min-height: 174px;
   }
 
-  .header__navigation--type-mobile-active-logged-in {
+  .header__navigation_type_mobile_active-logged-in {
     transition: max-height 1s ease, min-height 1s ease;
     max-height: 230px;
     min-height: 230px;
   }
 
-  .header__navigation--type-mobile-inactive {
+  .header__navigation_mobile_inactive {
     transition: max-height 0.7s ease;
     max-height: 0;
   }
