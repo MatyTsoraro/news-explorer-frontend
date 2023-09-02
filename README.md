@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# News Explorer - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Concept
 
-## Available Scripts
+Develop a web application where users can search for news articles from various sources and save them to their user profiles.
 
-In the project directory, you can run:
+![Project Concept Image](image-link)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. [Features](#features)
+2. [Front-End Implementation](#front-end-implementation)
+3. [Challenges](#challenges)
+4. [Design](#design)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
 
-### `npm run build`
+The application offers two main functionalities:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Article Search:** Users can enter a keyword into a search bar. The application then sends a request to the News API, finds relevant articles published within the last week, and displays them as a list of cards.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Saved Articles:** A specialized section displays articles that the user has saved, providing a convenient way to revisit them.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### Front-End Implementation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Pages:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Main Page:** Contains a search box for news article lookup.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Saved News:** Displays all articles that the user has saved or "liked."
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Popup Windows:
 
-## Learn More
+1. **Registration Form:** Allows new users to sign up.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Login Form:** Allows existing users to log in.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Reusable Components:
 
-### Code Splitting
+The frontend is built using React. We utilize reusable components and style them according to BEM specifications.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### Challenges
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Preloader:** Implement a preloader animation that displays while waiting for the News API to respond.
 
-### Making a Progressive Web App
+2. **Dynamic Header:** The website header should display differently based on whether the user is logged in or not.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The design mockups are available on Figma [here](https://www.figma.com/file/P64RFFkY2VbDhR51rbscAq/Diploma-WEB-v2.0-EN-US).
 
-### Deployment
+For those having trouble with Figma, you can download the `.fig` file [here](download-link).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
