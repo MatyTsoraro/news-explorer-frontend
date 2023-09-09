@@ -18,7 +18,8 @@ const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen, updateArticles })
         console.log("Before API call");
         if (articles) {
           console.log("Fetched articles:", articles);
-          updateArticles(articles);
+          // Assuming you have a function passed from a parent component to update the state
+          updateArticles(articles);  // <-- Add this line
         }
         console.log("After API call");
       });
@@ -26,6 +27,7 @@ const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen, updateArticles })
     setIsNewsCardListOpen(true);
     setFormInputValue("");
   }
+
 
   return (
       <section className="search-form">

@@ -15,9 +15,10 @@ const NewsCardList = ({ onSavedArticlesPage, loggedIn, cards }) => {  // <-- Cha
   }, [onSavedArticlesPage, cards]);
 
   function handleShowMoreCards() {
-    setShowCards(cards.slice(0, next + 3));
+    setShowCards(cards.slice(0, next + 3));  // <-- Use cards instead of articles
     setNext(next + 3);
   }
+
 
   return (
     <section
