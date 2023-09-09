@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
-import savedArticles from "../../utils/savedArticles";
 
-const NewsCardList = ({ onSavedArticlesPage, loggedIn, articles }) => {  // <-- Add articles prop
+const NewsCardList = ({ onSavedArticlesPage, loggedIn, cards }) => {  // <-- Changed articles to cards
   const [showCards, setShowCards] = useState([]);
+  const [next, setNext] = useState(3);  // Added this state for pagination
 
-  // It starts with 3 new cards (on saved article page, it will show all cards)
   useEffect(() => {
     if (!onSavedArticlesPage) {
-      setShowCards(articles.slice(0, 3));  // <-- Use articles instead of savedArticles
+      setShowCards(cards.slice(0, 3));
     } else {
-      setShowCards(articles);  // <-- Use articles instead of savedArticles
+      setShowCards(cards);
     }
-  }, [onSavedArticlesPage, articles]);  // <-- Add articles to dependency array
+  }, [onSavedArticlesPage, cards]);
 
   function handleShowMoreCards() {
-    setShowCards(savedArticles.slice(0, next + 3));
+    setShowCards(cards.slice(0, next + 3));
     setNext(next + 3);
   }
-
-  useEffect(() => {
-    setShowCards(articles.slice(0, 3));  // Use articles instead of savedArticles
-  }, [articles]);
 
   return (
     <section

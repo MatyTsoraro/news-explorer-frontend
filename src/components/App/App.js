@@ -243,6 +243,10 @@ function App() {
     setIsSuccessfulPopupOpen(false);
   }
 
+  function updateArticles(newArticles) {
+    setCards(newArticles);
+  }
+
   return (
       <CurrentUserContext.Provider value={currentUser}>
         <div className="App">
@@ -264,6 +268,7 @@ function App() {
                     searchKeyword={searchKeyword}
                     setSearchKeyword={setSearchKeyword}
                     setIsNewsCardListOpen={setIsNewsCardListOpen}
+                    updateArticles={updateArticles}
                 />
                 {hasResults && isNewsCardListOpen && (
                     <NewsCardList
