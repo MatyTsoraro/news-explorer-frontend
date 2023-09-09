@@ -3,7 +3,7 @@ import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 import savedArticles from "../../utils/savedArticles";
 
-const NewsCardList = ({ onSavedArticlesPage, loggedIn }) => {
+const NewsCardList = ({ onSavedArticlesPage, loggedIn, articles }) => {
   const [showCards, setShowCards] = useState([]);
   const [next, setNext] = useState(3);
 
@@ -20,6 +20,10 @@ const NewsCardList = ({ onSavedArticlesPage, loggedIn }) => {
     setShowCards(savedArticles.slice(0, next + 3));
     setNext(next + 3);
   }
+
+  useEffect(() => {
+    setShowCards(articles.slice(0, 3));  // Use articles instead of savedArticles
+  }, [articles]);
 
   return (
     <section
