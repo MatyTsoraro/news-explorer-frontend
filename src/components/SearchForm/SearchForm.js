@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 
-const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
+export default const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
   const [formInputValue, setFormInputValue] = useState("");
 
   function handleChange(evt) {
@@ -11,9 +11,9 @@ const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    setIsNewsCardListOpen(true);
-    setFormInputValue("");
-  }
+    if (formInputValue) {
+      onSearch(formInputValue);  // Call the onSearch function
+    }
 
   return (
     <section className="search-form">
@@ -44,4 +44,4 @@ const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
   );
 };
 
-export default SearchForm;
+
