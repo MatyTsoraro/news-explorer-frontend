@@ -60,10 +60,11 @@ const Header = ({
     }
   }, [mobileWidth, onSavedArticlesPage]);
 
-  useEffect((evt) => {
+  useEffect(() => {
     window.addEventListener("click", handleCloseFromOverlay);
     return () => window.removeEventListener("click", handleCloseFromOverlay);
   });
+
 
   function handleCloseFromOverlay(evt) {
     if (overlayRef.current && !overlayRef.current.contains(evt.target)) {
