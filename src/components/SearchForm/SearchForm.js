@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
+import newsApi from "../../utils/NewsApi";
 
-export default const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
+const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) => {
   const [formInputValue, setFormInputValue] = useState("");
 
   function handleChange(evt) {
@@ -12,8 +13,16 @@ export default const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) 
   function handleSubmit(evt) {
     evt.preventDefault();
     if (formInputValue) {
-      onSearch(formInputValue);  // Call the onSearch function
+      newsApi.searchArticles(formInputValue).then(articles => {
+        if (articles) {
+          // Update the state with the fetched articles
+          // You might need to pass a function from a parent component to do this
+        }
+      });
     }
+    setIsNewsCardListOpen(true);
+    setFormInputValue("");
+  }
 
   return (
     <section className="search-form">
@@ -45,3 +54,4 @@ export default const SearchForm = ({ setSearchKeyword, setIsNewsCardListOpen }) 
 };
 
 
+export default SearchForm;

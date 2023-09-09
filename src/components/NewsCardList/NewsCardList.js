@@ -3,18 +3,17 @@ import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 import savedArticles from "../../utils/savedArticles";
 
-const NewsCardList = ({ onSavedArticlesPage, loggedIn, articles }) => {
+const NewsCardList = ({ onSavedArticlesPage, loggedIn, articles }) => {  // <-- Add articles prop
   const [showCards, setShowCards] = useState([]);
-  const [next, setNext] = useState(3);
 
   // It starts with 3 new cards (on saved article page, it will show all cards)
   useEffect(() => {
     if (!onSavedArticlesPage) {
-      setShowCards(savedArticles.slice(0, 3));
+      setShowCards(articles.slice(0, 3));  // <-- Use articles instead of savedArticles
     } else {
-      setShowCards(savedArticles);
+      setShowCards(articles);  // <-- Use articles instead of savedArticles
     }
-  }, [onSavedArticlesPage]);
+  }, [onSavedArticlesPage, articles]);  // <-- Add articles to dependency array
 
   function handleShowMoreCards() {
     setShowCards(savedArticles.slice(0, next + 3));
