@@ -1,16 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
-import LinkedInIcon from "../../images/icons/linkedin-icon.svg";
-import InstagramIcon from "../../images/icons/instagram-icon.svg";
-import GithubIcon from "../../images/icons/github-icon.svg";
+import FacebookIcon from "../../images/facebook-icon.svg";
+import GithubIcon from "../../images/github-icon.svg";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
         <p className="footer__copyright">
-          &copy; 2022 Supersite, Powered by News API
+          &copy; 2023 Supersite, Powered by News API
         </p>
         <nav className="footer__navigation">
           <div className="footer__links">
@@ -19,7 +18,7 @@ const Footer = () => {
             </NavLink>
             <a
               className="footer__link"
-              href="https://practicum.com/en-isr/"
+              href="https://practicum.com/"
               target="_blank"
               rel="noreferrer"
             >
@@ -28,7 +27,7 @@ const Footer = () => {
           </div>
           <div className="footer__social">
             <a
-              href="https://github.com/Chen-Abudi"
+              href="https://github.com/MatyTsoraro"
               target="_blank"
               rel="noreferrer"
             >
@@ -39,26 +38,14 @@ const Footer = () => {
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/chen-abudi/"
+              href="https://www.facebook.com/maty.tsoraro/"
               target="_blank"
               rel="noreferrer"
             >
               <img
-                className="footer__icon footer__icon_type_linkedin"
-                src={LinkedInIcon}
-                alt="LinkedIn Icon"
-              />
-            </a>
-
-            <a
-              href="https://www.instagram.com/calibased23/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                className="footer__icon footer__icon_type_instagram"
-                src={InstagramIcon}
-                alt="Instagram Icon"
+                className="footer__icon footer__icon_type_facebook"
+                src={FacebookIcon}
+                alt="Facebook Icon"
               />
             </a>
           </div>

@@ -32,7 +32,7 @@
   margin-left: 40px;
   align-self: center;
   text-decoration: none;
-  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
+  cursor: url("../../images/pointer_icon.svg"), pointer;
   transition: opacity 0.3s ease;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .footer__icon {
-  cursor: url("../../images/icons/pointer_icon.svg"), pointer;
+  cursor: url("../../images/pointer_icon.svg"), pointer;
   transition: opacity 0.3s ease;
 }
 
@@ -57,13 +57,7 @@
   margin-left: 40px;
 }
 
-.footer__icon_type_linkedin {
-  margin-left: 24px;
-  width: 22px;
-}
-
-.footer__icon_type_instagram {
-  width: 22px;
+.footer__icon_type_facebook {
   margin-left: 24px;
 }
 
