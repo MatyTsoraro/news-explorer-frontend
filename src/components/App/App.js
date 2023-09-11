@@ -39,6 +39,7 @@ function App() {
  const [searchKeyword, setSearchKeyword] = useState([]);
  const [isNewsCardListOpen, setIsNewsCardListOpen] = useState(false);
  const [onSavedArticlesPage, setOnSavedArticlesPage] = useState(false);
+ const [refresh, setRefresh] = useState(false);
  const [isSuccessfulPopupOpen, setIsSuccessfulPopupOpen] = useState(false);
  const [hasResults, setHasResults] = useState(false);
 
@@ -79,7 +80,7 @@ function App() {
     })
     .catch((err) => console.log(err));
   }
- }, [token, loggedIn]);
+ }, [token, loggedIn, refresh]);
 
  useEffect(() => {
   if (token) {
@@ -167,6 +168,7 @@ function App() {
    .removeArticle(articleId, token)
    .then((data) => {
     setSavedArticles(savedArticles.filter((obj) => obj._id !== data._id));
+    setRefresh(!refresh); // Toggle the refresh state
    })
    .catch((err) => console.log(err));
  }
