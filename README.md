@@ -62,4 +62,6 @@ The design mockups are available on Figma [here](https://www.figma.com/file/P64R
 For those having trouble with Figma, you can download the `.fig` file [here](download-link).
 
 ---
+### Deploy
 
+https://news-explorer-frontend-uuj8p.kinsta.app/
