@@ -1,5 +1,6 @@
 import React from "react";
 import "./SuccessfulPopup.css";
+<<<<<<< HEAD
 
 const SuccessfulPopup = (props) => {
   function handlePopupClick(evt) {
@@ -30,6 +31,23 @@ const SuccessfulPopup = (props) => {
         </div>
       </div>
     </div>
+=======
+import PopupWithForm from "../PopupWithForm/PopupWithForm";
+
+const SuccessfulPopup = (props) => {
+  return (
+    <PopupWithForm
+      name="success"
+      title="Registration successfully completed!"
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      isLoading={props.isLoading}
+    >
+      <p className="popup__link-signin" onClick={props.onSignInClick}>
+        Sign in
+      </p>
+    </PopupWithForm>
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   );
 };
 

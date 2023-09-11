@@ -1,5 +1,9 @@
 @import url("./vendor/normalize.css");
+<<<<<<< HEAD
 @import url("./vendor/fonts/fonts.css");
+=======
+@import url("vendor/fonts/fonts.css");
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
 
 * {
   box-sizing: border-box;

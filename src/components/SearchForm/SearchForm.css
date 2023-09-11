@@ -66,7 +66,11 @@
 }
 
 .search-form__input:focus {
+<<<<<<< HEAD
   outline: 2px ridge #2f71e5;
+=======
+  outline: none;
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
 }
 
 ::placeholder {
@@ -90,7 +94,11 @@
 
 .search-form__button:hover {
   background-color: #347eff;
+<<<<<<< HEAD
   cursor: url("../../images/icons/pointer_icon.svg"), pointer;
+=======
+  cursor: url("../../images/pointer_icon.svg"), pointer;
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
 }
 
 .search-form__button:active {

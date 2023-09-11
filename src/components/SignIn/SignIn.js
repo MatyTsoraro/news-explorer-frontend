@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+<<<<<<< HEAD
 import useFormValidation from "../../hooks/useFormValidation";
 
 const SignIn = ({
@@ -11,6 +12,14 @@ const SignIn = ({
 }) => {
   const { values, handleChange, errors, isValid, handleFormReset } =
     useFormValidation();
+=======
+import FormValidation from "../../utils/FormValidation";
+import "./SignIn.css";
+
+const SignIn = ({ isOpen, onClose, onLoginSubmit, onSignUpClick }) => {
+  const { values, handleChange, errors, isValid, handleFormReset } =
+    FormValidation();
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
 
   // When form is open, resets it
   useEffect(() => {
@@ -19,7 +28,11 @@ const SignIn = ({
 
   function handleSubmit(evt) {
     evt.preventDefault();
+<<<<<<< HEAD
     onLoginSubmit(values.email, values.password);
+=======
+    onLoginSubmit();
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   }
 
   return (
@@ -49,6 +62,10 @@ const SignIn = ({
           {errors.email || ""}
         </p>
       </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
       <div className="popup__input-overlay">
         <label className="popup__input-label" htmlFor="password-input">
           Password
@@ -62,7 +79,11 @@ const SignIn = ({
           name="password"
           onChange={handleChange}
           value={values.password || ""}
+<<<<<<< HEAD
           minLength="8"
+=======
+          minLength="5"
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
           maxLength="30"
           required
         />
@@ -70,11 +91,15 @@ const SignIn = ({
           {errors.password || ""}
         </p>
       </div>
+<<<<<<< HEAD
       {hasError && (
         <p className="popup__error popup__error_type_form">
           Incorrect email or password
         </p>
       )}
+=======
+
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
       <button
         className={`popup__submit-button ${
           isValid ? "popup__submit-button_active" : ""
@@ -87,9 +112,16 @@ const SignIn = ({
       </button>
       <p className="popup__signin-register">
         or{" "}
+<<<<<<< HEAD
         <span className="popup__link" onClick={onSignUpClick}>
           Sign up
         </span>
+=======
+        <button className="popup__link" onClick={onSignUpClick}>
+          Sign up
+        </button>
+
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
       </p>
     </PopupWithForm>
   );

@@ -80,7 +80,11 @@
 
 .header__logo:hover,
 .header__log-button:hover {
+<<<<<<< HEAD
   cursor: url("../../images/icons/pointer_icon.svg"), pointer;
+=======
+  cursor: url("../../images/pointer_icon.svg"), pointer;
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   opacity: 0.7;
 }
 
@@ -205,7 +209,11 @@
 
   .header__menu-icon:hover {
     opacity: 0.7;
+<<<<<<< HEAD
     cursor: url("../../images/icons/pointer_icon.svg"), pointer;
+=======
+    cursor: url("../../images/pointer_icon.svg"), pointer;
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   }
 
   .header__navigation {
@@ -224,7 +232,11 @@
     overflow: hidden;
   }
 
+<<<<<<< HEAD
   .header__navigation_type_mobile_active-logged-out {
+=======
+  .header__navigation_mobile_active_logged-out{
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
     transition: max-height 1s ease, min-height 1s ease;
     max-height: 174px;
     min-height: 174px;
@@ -236,7 +248,11 @@
     min-height: 230px;
   }
 
+<<<<<<< HEAD
   .header__navigation_type_mobile_inactive {
+=======
+  .header__navigation_mobile_inactive {
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
     transition: max-height 0.7s ease;
     max-height: 0;
   }

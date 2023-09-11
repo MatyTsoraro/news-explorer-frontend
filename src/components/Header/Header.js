@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import MobileNavigationOverlay from "../MobileNavigationOverlay/MobileNavigationOverlay";
 
+<<<<<<< HEAD
 import MenuHamburgerWhiteIcon from "../../images/icons/menu-white_icon.svg";
 import MenuHamburgerBlackIcon from "../../images/icons/menu-black_icon.svg";
 import MenuCloseIcon from "../../images/icons/menu-close_icon.svg";
@@ -18,6 +19,23 @@ const Header = ({
   onSavedArticlesPage,
   onLogOut,
 }) => {
+=======
+import MenuHamburgerWhiteIcon from "../../images/menu-white_icon.svg";
+import MenuHamburgerBlackIcon from "../../images/menu-black_icon.svg";
+import MenuCloseIcon from "../../images/menu-close_icon.svg";
+import MenuLogoutWhiteIcon from "../../images/menu-logout-white_icon.svg";
+import MenuLogoutBlackIcon from "../../images/menu-logout-black_icon.svg";
+
+const Header = ({
+                  loggedIn,
+                  currentUser,
+                  onSignInClick,
+                  setIsNewsCardListOpen,
+                  setSearchKeyword,
+                  onSavedArticlesPage,
+                  onLogOut,
+                }) => {
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mobileWidth, setMobileWidth] = useState(false);
   const [hamburgerShow, setHamburgerShow] = useState();
@@ -60,11 +78,19 @@ const Header = ({
     }
   }, [mobileWidth, onSavedArticlesPage]);
 
+<<<<<<< HEAD
   useEffect((evt) => {
+=======
+  useEffect(() => {
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
     window.addEventListener("click", handleCloseFromOverlay);
     return () => window.removeEventListener("click", handleCloseFromOverlay);
   });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   function handleCloseFromOverlay(evt) {
     if (overlayRef.current && !overlayRef.current.contains(evt.target)) {
       setIsMenuOpen(false);
@@ -102,6 +128,7 @@ const Header = ({
   }
 
   return loggedIn ? (
+<<<<<<< HEAD
     <header
       className={`header ${
         isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
@@ -228,6 +255,134 @@ const Header = ({
         </MobileNavigationOverlay>
       </div>
     </header>
+=======
+      <header
+          className={`header ${
+              isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
+          }`}
+          ref={overlayRef}
+      >
+        <NavLink
+            className={`header__logo ${
+                onSavedArticlesPage && "header__logo_saved-articles"
+            } ${isMenuOpen && "header__logo_menu_open"}`}
+            exact
+            to="/"
+            onClick={handleNavigationClick}
+        >
+          NewsExplorer
+        </NavLink>
+        <img
+            className="header__menu-icon"
+            alt="Menu Icon"
+            src={hamburgerShow}
+            onClick={onHamburgerClick}
+        />
+        <nav
+            className={`header__navigation ${
+                mobileWidth && isMenuOpen
+                    ? "header__navigation_type_mobile_active-logged-in"
+                    : "header__navigation_type_mobile_inactive"
+            }`}
+        >
+          <MobileNavigationOverlay mobileWidth={mobileWidth}>
+            <NavLink
+                className={`header__link-homepage ${
+                    onSavedArticlesPage && "header_color_black"
+                }`}
+                activeClassName={
+                  onSavedArticlesPage
+                      ? "header__active_color_black"
+                      : "header__active_color_white"
+                }
+                exact
+                to="/"
+                onClick={handleNavigationClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+                className={`header__link-saved-articles ${
+                    onSavedArticlesPage && "header_color_black"
+                }`}
+                activeClassName={
+                  onSavedArticlesPage
+                      ? "header__active_color_black"
+                      : "header__active_color_white"
+                }
+                to="/saved-articles"
+                onClick={handleNavigationClick}
+            >
+              Saved articles
+            </NavLink>
+            <NavLink
+                className={`header__log-button header__signout-button header__log-button_logged-in ${
+                    onSavedArticlesPage && "header__log-button_saved-articles"
+                }`}
+                to=""
+                onClick={logOut}
+            >
+              <p className="header__log-button-username">{currentUser?.name}</p>
+              <img
+                  className="header__log-button-logout-icon"
+                  src={logoutShowIcon}
+                  alt="Logout Icon"
+              />
+            </NavLink>
+          </MobileNavigationOverlay>
+        </nav>
+      </header>
+  ) : (
+      <header
+          className={`header ${
+              isMenuOpen ? "header_mobile-menu_open" : "header_mobile-menu_closed"
+          }`}
+          ref={overlayRef}
+      >
+        <NavLink
+            className="header__logo"
+            exact
+            to="/"
+            onClick={handleNavigationClick}
+        >
+          NewsExplorer
+        </NavLink>
+        <img
+            className="header__menu-icon"
+            alt="Menu icon"
+            src={hamburgerShow}
+            onClick={onHamburgerClick}
+        />
+        <div
+            className={`header__navigation ${
+                mobileWidth && isMenuOpen
+                    ? ".header__navigation_mobile_active_logged-out"
+                    : "header__navigation_mobile_inactive"
+            }`}
+        >
+          <MobileNavigationOverlay mobileWidth={mobileWidth}>
+            <NavLink
+                className="header__link-homepage"
+                activeClassName="header__active_color_white"
+                exact
+                to="/"
+                onClick={handleNavigationClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+                className={
+                  "header__log-button header__signin-button header__log-button_logged-out"
+                }
+                to=""
+                onClick={handleLogButtonClick}
+            >
+              Sign In
+            </NavLink>
+          </MobileNavigationOverlay>
+        </div>
+      </header>
+>>>>>>> 74710acca71b6ac8c291ef03f806de9f8a564fe6
   );
 };
 
