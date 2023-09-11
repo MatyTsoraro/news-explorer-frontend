@@ -62,12 +62,20 @@ function App() {
  }, [history, token]);
 
  // GETting current user and articles if the user logged in
+ // Your existing useEffect
  useEffect(() => {
   if (loggedIn) {
    Promise.all([mainApi.getCurrentUser(token), mainApi.getArticles(token)])
     .then(([user, articles]) => {
      setCurrentUser(user.data);
-     setSavedArticles(articles.data);
+     console.log("Complete Articles object from API:", articles);
+     if (articles) {
+      // Check if articles itself contains the data
+      setSavedArticles(articles);
+     } else {
+      console.log("articles is undefined");
+      setSavedArticles([]);
+     }
     })
     .catch((err) => console.log(err));
   }
@@ -101,33 +109,38 @@ function App() {
  }, []);
 
  // Saving an article and adds it to the array of articles
+ // App.js
+
  function handleSaveArticle(data) {
-  // New Debugging logs
-  console.log("Type of savedArticles:", typeof savedArticles);
-  console.log("Type of data:", typeof data);
-  console.log("data.title:", data.title);
+  console.log("Entering handleSaveArticle");
+  console.log("Current savedArticles:", savedArticles);
+  console.log("Current data:", data);
 
-  // Existing Debugging logs
-  console.log("Inside handleSaveArticle");
-  console.log("savedArticles:", savedArticles);
-  console.log("data:", data);
-
-  // Your existing code
-  if (!savedArticles.find((obj) => obj.title === data.title)) {
-   mainApi
-    .saveArticle(data, searchKeyword, token)
-    .then((res) => {
-     console.log("API Response:", res); // Debugging log
-     if (res) {
-      setSavedArticles((savedArticles) => [...savedArticles, res.data]);
-      console.log("Updated savedArticles:", savedArticles); // Debugging log
-      console.log("article got saved!");
-     }
-    })
-    .catch((err) => console.log(err));
-  } else {
-   console.log("Sorry, but it is already got saved");
+  // Check if the article is already saved
+  if (savedArticles && savedArticles.find((obj) => obj.title === data.title)) {
+   console.log("Article already saved or savedArticles is not an array");
+   return;
   }
+
+  // Save the article using your API
+  mainApi
+   .saveArticle(data, searchKeyword, token)
+   .then((res) => {
+    console.log("Complete API Response:", res); // Log the complete response
+
+    // Check if res exists and is an object
+    if (res && typeof res === "object") {
+     // Update the state to include the new saved article
+     setSavedArticles((prevSavedArticles) => [...prevSavedArticles, res]);
+     console.log("Article got saved!");
+    } else {
+     console.log("res is undefined or not an object");
+    }
+   })
+
+   .catch((err) => {
+    console.log("Error while saving article:", err);
+   });
  }
 
  // DELETE-ing article and removes it from the array
